@@ -1,6 +1,4 @@
-import { DiVim } from "react-icons/di";
-
-export function DailyBestCard({data}){
+export function DailyBestCard({data}:any){
     return(
         <div className="relative flex flex-col justify-between gap-1 px-2 py-2 border border-gray-400 rounded-2xl ">
             {data.tag !== "" && <div className="absolute top-0 left-0 bg-lightred text-white px-4 py-2 rounded-tl-2xl rounded-br-3xl">{data.tag}</div>}

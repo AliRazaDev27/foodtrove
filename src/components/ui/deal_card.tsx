@@ -1,7 +1,7 @@
 import { FaStar } from "react-icons/fa";
 import { FiShoppingCart } from "react-icons/fi";
 
-export function DealCard({data}){
+export function DealCard({data}:any){
 
     return(
         <div className="">

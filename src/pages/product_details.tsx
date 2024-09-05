@@ -4,14 +4,33 @@ import { useParams } from "react-router-dom";
 import RatingStar from "../components/ui/ratingStar";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Label } from "../components/ui/label";
-import { FaHeart, FaMinus, FaPlus } from "react-icons/fa";
+import { FaMinus, FaPlus } from "react-icons/fa";
 import { Button } from "../components/ui/button";
 import { CiHeart } from "react-icons/ci";
 import { addToCart } from "@/store/features/cart/cartSlice";
 import { useDispatch } from "react-redux";
+import type { Product } from "@/types";
 export default function ProductDetails() {
   const { id } = useParams();
-  const [data, setData] = useState({});
+  const initialData: Product = {
+    _id: "0",
+    title: "",
+    description: "",
+    price: 0,
+    discountPercentage: 0,
+    rating: 0,
+    stock: 0,
+    brand: "",
+    category: "",
+    thumbnail: "",
+    warrantyInformation: "",
+    shippingInformation: "",
+    availabilityStatus: "",
+    returnPolicy: "",
+    reviews: [],
+    images: [],
+  };
+  const [data, setData]: [Product, any] = useState(initialData);
   const [quantity, setQuantity] = useState(1);
   const dispatch = useDispatch();
   console.log(data);

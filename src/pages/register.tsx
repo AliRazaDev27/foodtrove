@@ -2,13 +2,13 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Link } from "react-router-dom";
-import {useRef, useState} from "react";
+import {useRef} from "react";
 import { useDispatch } from "react-redux";
 import { register } from "../store/features/auth/authSlice";
 
 
 export default function Register() {
-    const dispatch = useDispatch()
+    const dispatch = useDispatch<any>()
     const firstNameRef = useRef<HTMLInputElement>(null);
     const lastNameRef = useRef<HTMLInputElement>(null);
     const emailRef = useRef<HTMLInputElement>(null);

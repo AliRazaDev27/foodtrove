@@ -2,7 +2,7 @@ import { MdOutlineShoppingCart } from "react-icons/md";
 import { FaStar } from "react-icons/fa";
 
 
-export function PopularProductCard({product}){
+export function PopularProductCard({product}:any){
     return(
         <div className="relative border border-gray-300 rounded-3xl">
             {

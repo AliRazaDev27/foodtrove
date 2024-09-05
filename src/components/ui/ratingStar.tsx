@@ -1,7 +1,6 @@
-import React from 'react';
 import { FaStar, FaStarHalfAlt, FaRegStar } from 'react-icons/fa';
 
-const RatingStar = ({ rating }) => {
+const RatingStar = ({ rating }:{rating:number}) => {
   console.log("rating",rating)
   if(!rating) rating = 0
   const fullStars = Math.floor(rating);

@@ -3,12 +3,17 @@ import authService from './authService'
 
 const storedUser = window.localStorage.getItem('user');
 const user = storedUser ? JSON.parse(storedUser) : null;
-const initialState = {
+type State = {
+  user: any
+  status: string
+  error: any
+}
+const initialState: State = {
   user: user,
   status: 'idle',
   error: null
 }
-export const login = createAsyncThunk('auth/login', async (inputValues, thunkAPI) => {
+export const login = createAsyncThunk('auth/login', async (inputValues:any, thunkAPI) => {
   try {
     const response = await authService.loginUser(inputValues)
     return response
@@ -18,7 +23,7 @@ export const login = createAsyncThunk('auth/login', async (inputValues, thunkAPI
   }
 })
 
-export const register = createAsyncThunk('auth/register', async (inputValues, thunkAPI) => {
+export const register = createAsyncThunk('auth/register', async (inputValues:any, thunkAPI: any) => {
   try {
     const response = await authService.registerUser(inputValues)
     return response
@@ -28,7 +33,7 @@ export const register = createAsyncThunk('auth/register', async (inputValues, th
   }
 })
 
-export const logout = createAsyncThunk('auth/logout', async (thunkAPI) => {
+export const logout = createAsyncThunk('auth/logout', async (thunkAPI: any) => {
   try {
     const response = await authService.logoutUser()
     return response
@@ -42,7 +47,7 @@ export const authSlice = createSlice({
   initialState,
   reducers: {
     auth: (state, action) => {
-      state.value = action.payload
+      state.user = action.payload
     }
   },
   extraReducers: (builder) => {

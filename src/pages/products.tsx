@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams,useSearchParams } from "react-router-dom";
-import { UseSelector, UseDispatch, useSelector, useDispatch } from "react-redux";
+import { useSearchParams } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 import { sort } from "@/store/features/sort/sortSlice";
 import ProductCard from "../components/productCard";
 import {
@@ -14,11 +14,8 @@ import {
   import {
     Pagination,
     PaginationContent,
-    PaginationEllipsis,
     PaginationItem,
     PaginationLink,
-    PaginationNext,
-    PaginationPrevious,
   } from "@/components/ui/pagination"
 export default function Products() {
   const [searchParams, setSearchParams] = useSearchParams()

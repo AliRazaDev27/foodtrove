@@ -2,14 +2,14 @@ import { Label } from "../components/ui/label";
 import { Input } from "../components/ui/input";
 import {useRef} from "react";
 import { Button } from "@/components/ui/button";
-import { Link, redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { login } from "../store/features/auth/authSlice";
 import { Toaster } from "@/components/ui/toaster";
 import {useToast} from "../hooks/use-toast"
 import { useNavigate } from "react-router-dom";
 export default function Login() {
-    const dispatch = useDispatch()
+    const dispatch = useDispatch<any>()
     const {toast} = useToast()
     const navigate = useNavigate()
     const emailRef = useRef<HTMLInputElement>(null);
@@ -17,7 +17,7 @@ export default function Login() {
     const handleSubmit = (e:React.FormEvent) => {
         e.preventDefault();
         console.log(emailRef.current?.value)
-        dispatch(login({email: emailRef.current?.value, password: passwordRef.current?.value})).then((res) => {
+        dispatch(login({email: emailRef.current?.value, password: passwordRef.current?.value})).then((res:any) => {
             console.log(res)
             if(res.meta.requestStatus === "fulfilled") {
                 toast(

@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const loginUser = async (inputValues) => {
+const loginUser = async (inputValues:any) => {
   try {
     const axiosResponse = await axios
       .post("http://localhost:3000/api/users/login",
@@ -8,13 +8,13 @@ const loginUser = async (inputValues) => {
         { withCredentials: true, headers: { "ContentType": "application/json" } })
     window.localStorage.setItem("user", JSON.stringify(axiosResponse.data))
     return axiosResponse.data
-  } catch (error) {
+  } catch (error:any) {
     const errorMessage = error.response?.data?.message || error.message || "Something went wrong"
     return Promise.reject(errorMessage)
   }
 }
 
-const registerUser = async (inputValues) => {
+const registerUser = async (inputValues:any) => {
   try {
     const axiosResponse = await axios
       .post("http://localhost:3000/api/users/register",
@@ -22,7 +22,7 @@ const registerUser = async (inputValues) => {
         { withCredentials: true, headers: { "ContentType": "application/json" } })
 
     return axiosResponse.data
-  } catch (error) {
+  } catch (error:any) {
     const errorMessage = error.response?.data?.message || error.message || "Something went wrong"
     return Promise.reject(errorMessage)
   }
@@ -35,7 +35,7 @@ const logoutUser = async () => {
         { withCredentials: true, headers: { "ContentType": "application/json" } })
     window.localStorage.removeItem("user")
     return axiosResponse.data
-  } catch (error) {
+  } catch (error:any) {
     const errorMessage = error.response?.data?.message || error.message || "Something went wrong"
     return Promise.reject(errorMessage)
   }

@@ -1,6 +1,6 @@
 import { FaStar } from "react-icons/fa";
 
-export function SmallCard({data}){
+export function SmallCard({data}:any){
     return(
         <div className="flex items-center gap-2">
             <img src={data.image} alt="card" />

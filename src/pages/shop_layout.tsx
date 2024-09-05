@@ -1,4 +1,4 @@
-import { Outlet, useSearchParams } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
 import { Input } from "@/components/ui/input";
@@ -15,7 +15,6 @@ import {
   Sheet,
   SheetClose,
   SheetContent,
-  SheetDescription,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
@@ -53,7 +52,6 @@ export default function ShopLayout() {
 
 }
 export function SearchAndFilter({close}:{close?:any}) {
-  const [searchParams, setSearchParams] = useSearchParams()
   const [search,setSearch] = useState("")
     const [price, setPrice] = useState([0,100]);
   const [selectedCategories, setSelectedCategories] = useState(new Array(categories.length).fill(false));
