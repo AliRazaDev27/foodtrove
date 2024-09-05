@@ -75,34 +75,34 @@ export function SearchAndFilter({close}:{close?:any}) {
       }
     }).filter((brand) => brand !== undefined);
       console.log(categoryValues)
-      const encodedCategories = (JSON.stringify(categoryValues));
-      const encodedBrands = (JSON.stringify(brandValues));
-      const searchParams: any = {
-        page: 1,
-      }
+      const encodedCategories = encodeURIComponent(JSON.stringify(categoryValues));
+      const encodedBrands = encodeURIComponent(JSON.stringify(brandValues));
+      // const searchParams: any = {
+      //   page: 1,
+      // }
+      let searchParams = "/shop?page=1"
       if(search !== ""){
-        searchParams.search = search
+        searchParams += `&search=${search}` 
       }
-      if(encodedCategories !== "[]"){
-        searchParams.category = encodedCategories
+      if(encodedCategories !== "%5B%5D"){
+        searchParams += `&category=${encodedCategories}`
       }
-      if(encodedBrands !== "[]"){
-        searchParams.brand = encodedBrands
+      if(encodedBrands !== "%5B%5D"){
+        searchParams += `&brand=${encodedBrands}`
       }
       if(price[0] !== 0){
-        searchParams.minPrice = price[0]
+        searchParams += `&minPrice=${price[0]}`
       }
       if(price[1] !== 0){
-        searchParams.maxPrice = price[1]
+        searchParams += `&maxPrice=${price[1]}`
       }
       if(sortBy !== "default"){
-        searchParams.sortBy = sortBy
+        searchParams += `&sortBy=${sortBy}`
       }
-      setSearchParams(searchParams);
       if(close){
         close.current?.click()
       }
-
+      navigate(searchParams)
       // navigate(`/shop?page=1&search=${search}&category=${encodedCategories}&brand=${encodedBrands}&minPrice=${price[0]}&maxPrice=${price[1]}`)
 
   }

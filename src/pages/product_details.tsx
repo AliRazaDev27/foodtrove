@@ -1,11 +1,11 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import RatingStar from "./ui/ratingStar";
+import RatingStar from "../components/ui/ratingStar";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Label } from "./ui/label";
+import { Label } from "../components/ui/label";
 import { FaHeart, FaMinus, FaPlus } from "react-icons/fa";
-import { Button } from "./ui/button";
+import { Button } from "../components/ui/button";
 import { CiHeart } from "react-icons/ci";
 import { addToCart } from "@/store/features/cart/cartSlice";
 import { useDispatch } from "react-redux";

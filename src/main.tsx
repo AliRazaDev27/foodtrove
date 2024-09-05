@@ -1,18 +1,18 @@
+import './index.css'
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import './index.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import {Provider} from "react-redux"
+import store from "./store"
 import Root from './pages/root.tsx'
 import Home from './pages/home.tsx'
 import Register from './pages/register.tsx'
-import {Provider} from "react-redux"
-import store from "./store"
 import Login from './pages/login.tsx'
 import Seed from './pages/seed.tsx'
 import Products from './pages/products.tsx'
-import ProductDetails from './components/product_details.tsx'
+import ProductDetails from './pages/product_details.tsx'
 import ShopLayout from './pages/shop_layout.tsx'
-import Cart from './components/cart.tsx'
+import Cart from './pages/cart.tsx'
 import Checkout from './pages/checkout.tsx'
 import About from './pages/about.tsx'
 import Blog from './pages/blog.tsx'
