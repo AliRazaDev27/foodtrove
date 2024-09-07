@@ -1,4 +1,7 @@
-import axios from "axios";
+import {
+  useQuery,
+  useQueryClient,
+} from '@tanstack/react-query'
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
@@ -17,45 +20,25 @@ import {
     PaginationItem,
     PaginationLink,
   } from "@/components/ui/pagination"
+import { getQueryProducts } from "@/actions";
 export default function Products() {
   const [searchParams, setSearchParams] = useSearchParams()
-  const page = searchParams.get('page') || 1
+  const page = Number(searchParams.get('page')) || 1
   const search = searchParams.get('search')
   const sortBy = searchParams.get('sortBy')
-  const minPrice = searchParams.get('minPrice')
-  const maxPrice = searchParams.get('maxPrice')
+  const minPrice = Number(searchParams.get('minPrice'))
+  const maxPrice = Number(searchParams.get('maxPrice'))
   const category = searchParams.get('category')
   const brand = searchParams.get('brand')
-  console.log(category)
   const sortOption = useSelector((state:any)=>state.sort.sortBy)
   const dispatch = useDispatch()
-  console.log(sort)
-  
-  const [data, setData] = useState([]);
-  const [count, setCount] = useState(0);
   const [select, setSelect] = useState(sortOption);
-  useEffect(() => {
-    const products = async () => {
-      const response = await axios.get(
-        "http://localhost:3000/api/products",
-        {
-          params: {
-            page: page,
-            search: search,
-            sortBy: select,
-            minPrice: minPrice,
-            maxPrice: maxPrice,
-            category: category,
-            brand: brand,
-          },
-        }
-      );
-      console.log(response.data)
-      setData(response.data.products);
-      setCount(response.data.count);
-    };
-    products();
-  }, [page, search, sortBy, minPrice, maxPrice, category, brand,select]);
+  const queryClient = useQueryClient()
+  const {data,isError,isLoading} = useQuery({
+  queryKey:['products',page,search,sortBy,minPrice,maxPrice,category,brand,select],
+  queryFn:()=>getQueryProducts({page:page,search:search,sortBy:select,minPrice:minPrice,maxPrice:maxPrice,category:category,brand:brand}),
+})
+//this can be improved
   useEffect(() => {
     dispatch(sort(select))
   },[select])
@@ -105,6 +88,7 @@ export default function Products() {
     }  
     setSearchParams(nextSearchParams);
   };
+  //check for legal limits here
   const getPageAt = (index: number) =>{
     const nextSearchParams: any = {
       page: (index.toString()),}
@@ -128,7 +112,8 @@ export default function Products() {
     }  
     setSearchParams(nextSearchParams);
   }
-  if(data.length === 0){
+  // apply proper state renders for error,loading and data
+  if(data?.products?.length === 0){
     return (
       <div className="flex justify-center items-center min-h-[80vh]">
         <div className="text-3xl font-semibold"><span className="text-lightred">Opps!</span> No Products Found.</div>
@@ -137,7 +122,6 @@ export default function Products() {
   }
   
   return (
-      
       <div>
         <div className="flex flex-wrap gap-2 py-2  justify-between items-center">
         <div className="flex items-center gap-4">
@@ -145,7 +129,7 @@ export default function Products() {
     <div><img src="/viewMode2.png" alt="grid" className="bg-cover" /></div>
         <div><img src="/viewMode1.png" alt="item" className="bg-cover" /></div>
     </div>
-    <div>We found <span className="font-semibold">{count}</span> items for you</div>
+    <div>We found <span className="font-semibold">{data?.count}</span> items for you</div>
 
 </div>
 <div>
@@ -166,8 +150,8 @@ export default function Products() {
 </div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {data &&
-            data.map((product, index) => (
+          {data?.products &&
+            data.products.map((product, index) => (
               <ProductCard data={product} key={index} />
             ))}
         </div>
@@ -188,7 +172,7 @@ export default function Products() {
         </PaginationItem>
        
         <PaginationItem>
-          <button onClick={() => getNextPage()} className="hover:text-lightred font-medium px-2 mx-2" disabled={(Number(page)>=(count/9))}>Next</button>
+          <button onClick={() => getNextPage()} className="hover:text-lightred font-medium px-2 mx-2" disabled={(Number(page)>=((data && (data?.count)/9 || 0)))}>Next</button>
         </PaginationItem>
       </PaginationContent>
     </Pagination>

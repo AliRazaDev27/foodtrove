@@ -1,6 +1,13 @@
 import './index.css'
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+import {
+  useQuery,
+  useMutation,
+  useQueryClient,
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import {Provider} from "react-redux"
 import store from "./store"
@@ -16,6 +23,9 @@ import Cart from './pages/cart.tsx'
 import Checkout from './pages/checkout.tsx'
 import About from './pages/about.tsx'
 import Blog from './pages/blog.tsx'
+import Wishlist from './pages/wishlist.tsx'
+
+const queryClient = new QueryClient()
 
 const router = createBrowserRouter([
   {
@@ -55,6 +65,10 @@ const router = createBrowserRouter([
       {
         path:"/blog",
         element:<Blog/>
+      },
+      {
+        path:"/wishlist",
+        element:<Wishlist/>
       }
     ]
   },
@@ -74,8 +88,10 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
+    <QueryClientProvider client={queryClient}>
     <Provider store={store}>
     <RouterProvider router={router}/>
     </Provider>
+    </QueryClientProvider>
   </StrictMode>,
 )

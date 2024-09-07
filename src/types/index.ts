@@ -23,3 +23,12 @@ export type Review = {
     reviewerName: string;
     reviewerEmail: string;
 }
+export type ProductQuery = {
+    page: number,
+    search: string|null,
+    sortBy: string|null,
+    minPrice: number|null,
+    maxPrice: number|null,
+    category: string|null,
+    brand: string|null,
+}
