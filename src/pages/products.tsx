@@ -1,6 +1,5 @@
 import {
   useQuery,
-  useQueryClient,
 } from '@tanstack/react-query'
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
@@ -33,8 +32,7 @@ export default function Products() {
   const sortOption = useSelector((state:any)=>state.sort.sortBy)
   const dispatch = useDispatch()
   const [select, setSelect] = useState(sortOption);
-  const queryClient = useQueryClient()
-  const {data,isError,isLoading} = useQuery({
+  const {data} = useQuery({
   queryKey:['products',page,search,sortBy,minPrice,maxPrice,category,brand,select],
   queryFn:()=>getQueryProducts({page:page,search:search,sortBy:select,minPrice:minPrice,maxPrice:maxPrice,category:category,brand:brand}),
 })
