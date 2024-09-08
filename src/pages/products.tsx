@@ -1,5 +1,5 @@
 import {
-  useQuery,
+  useQuery,keepPreviousData
 } from '@tanstack/react-query'
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
@@ -35,12 +35,14 @@ export default function Products() {
   const {data} = useQuery({
   queryKey:['products',page,search,sortBy,minPrice,maxPrice,category,brand,select],
   queryFn:()=>getQueryProducts({page:page,search:search,sortBy:select,minPrice:minPrice,maxPrice:maxPrice,category:category,brand:brand}),
+  placeholderData:keepPreviousData,
 })
 //this can be improved
   useEffect(() => {
     dispatch(sort(select))
   },[select])
   const getNextPage = () => {
+    gotoTop()
     const nextSearchParams: any = {
       page: ((Number(page) + 1).toString()),}
     if(search){
@@ -60,10 +62,11 @@ export default function Products() {
     }
     if(brand){
       nextSearchParams.brand = brand
-    }  
+    } 
     setSearchParams(nextSearchParams);
   };
   const getPreviousPage = () => {
+    gotoTop()
     const nextSearchParams: any = {
       page: ((Number(page) - 1).toString()),}
     if(search){
@@ -88,6 +91,7 @@ export default function Products() {
   };
   //check for legal limits here
   const getPageAt = (index: number) =>{
+    gotoTop()
     const nextSearchParams: any = {
       page: (index.toString()),}
     if(search){
@@ -109,6 +113,9 @@ export default function Products() {
       nextSearchParams.brand = brand
     }  
     setSearchParams(nextSearchParams);
+  }
+  const gotoTop = () => {
+    window.scrollTo({ top: 0, behavior:"auto" });
   }
   // apply proper state renders for error,loading and data
   if(data?.products?.length === 0){
