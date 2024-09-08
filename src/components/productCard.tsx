@@ -8,7 +8,7 @@ export default function ProductCard({data}:any){
             <img src={data.thumbnail} alt="thumbnail" className="bg-cover" />
         </div> */}
         <div className="border border-gray-400 overflow-hidden rounded-2xl">
-            <Image src={data.thumbnail} alt="thumbnail" loading="lazy"/>
+            <Image src={data.thumbnail} alt="thumbnail" loading="lazy" placeholder="/placeholder.webp"/>
         </div>
     <p className="text-secondary">{data.category}</p>
     <div className="flex items-center gap-2">
