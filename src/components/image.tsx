@@ -1,5 +1,5 @@
 export function Image({src,alt,loading,width,height,placeholder}:{src:string,alt:string,loading?:Loading,width?:number,height?:number,placeholder?:string}){
-    const id = Math.random().toString()
+    const id = ((Math.random() * 1000) + 1).toString()
     fetch(src)
     .then(res=>res.blob())
     .then(res=>{
