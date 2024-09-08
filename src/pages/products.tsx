@@ -32,7 +32,7 @@ export default function Products() {
   const sortOption = useSelector((state:any)=>state.sort.sortBy)
   const dispatch = useDispatch()
   const [select, setSelect] = useState(sortOption);
-  const {data} = useQuery({
+  const {data,isLoading} = useQuery({
   queryKey:['products',page,search,sortBy,minPrice,maxPrice,category,brand,select],
   queryFn:()=>getQueryProducts({page:page,search:search,sortBy:select,minPrice:minPrice,maxPrice:maxPrice,category:category,brand:brand}),
   placeholderData:keepPreviousData,
@@ -118,6 +118,12 @@ export default function Products() {
     window.scrollTo({ top: 0, behavior:"auto" });
   }
   // apply proper state renders for error,loading and data
+  if(isLoading){
+    return (
+      <div className="flex justify-center items-center min-h-[80vh]">
+      </div>
+    )
+  }
   if(data?.products?.length === 0){
     return (
       <div className="flex justify-center items-center min-h-[80vh]">

@@ -11,7 +11,7 @@ export function Image({src,alt,loading,width,height,placeholder}:{src:string,alt
                 img?.setAttribute("src",URL.createObjectURL(res))
                 img?.animate([{filter:"blur(10px)"},{filter:"blur(0px)"}],{duration:1000,fill:"forwards"})
             },1000)
-        },100)
+        },1000)
         return
     })
     const props:any = {}
