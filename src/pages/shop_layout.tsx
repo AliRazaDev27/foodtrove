@@ -23,12 +23,12 @@ import {
 export default function ShopLayout() {
   const closeRef = useRef<HTMLButtonElement>(null);
     return (
-      <>
+      <div>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 px-4 py-2">
-        <div className="hidden md:col-span-1 md:flex flex-col gap-4 px-2 py-2 ">
+        <div className="hidden md:col-span-1 md:flex flex-col gap-4 px-2 py-2">
             <SearchAndFilter/>
         </div>
-      <div className="col-span-3">
+      <div className="col-span-3 border-blue-500">
         <Outlet />
       </div>
         </div>
@@ -47,7 +47,7 @@ export default function ShopLayout() {
   </SheetContent>
   <SheetClose ref={closeRef}/>
 </Sheet>
-    </>
+    </div>
     )
 
 }
@@ -118,7 +118,7 @@ if(close){
 navigate("/shop")
   }
   return(
-   <>
+   <div>
         <div className="flex flex-col gap-2">
           <p className="md:text-lg font-semibold">Search By Title</p>
           <Input placeholder="Search"  className="w-full" defaultValue={search} onChange={(e) => setSearch(e.target.value)} />
@@ -160,7 +160,7 @@ navigate("/shop")
         </ul>
         </ScrollArea>
         </div>
-        </>
+        </div>
     
   )
 }

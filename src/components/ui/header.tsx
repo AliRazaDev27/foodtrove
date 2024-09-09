@@ -57,7 +57,10 @@ export function Header() {
           </li>
         </ul>
         :
-        <Link to="/login"  className="rounded-2xl bg-black/90 hover:bg-black text-white px-4 py-2">Login</Link>
+        <div className="flex gap-4 md:gap-6  items-center">
+          <Link to="/cart" className="flex gap-2 items-center hover:underline underline-offset-8 decoration-[2px] decoration-lightred"><IoCartOutline /> Cart</Link>
+          <Link to="/login"  className="rounded-2xl bg-black/90 hover:bg-black text-white px-4 py-2">Login</Link>
+        </div>
         }
       </div>
     </header>

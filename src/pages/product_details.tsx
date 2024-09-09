@@ -1,6 +1,5 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import {  useState } from "react";
+import { useLoaderData  } from "react-router-dom";
 import RatingStar from "../components/ui/ratingStar";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Label } from "../components/ui/label";
@@ -10,44 +9,21 @@ import { CiHeart } from "react-icons/ci";
 import { addToCart } from "@/store/features/cart/cartSlice";
 import { useDispatch } from "react-redux";
 import type { Product } from "@/types";
+import { useToast } from "../hooks/use-toast";
+
 export default function ProductDetails() {
-  const { id } = useParams();
-  const initialData: Product = {
-    _id: "0",
-    title: "",
-    description: "",
-    price: 0,
-    discountPercentage: 0,
-    rating: 0,
-    stock: 0,
-    brand: "",
-    category: "",
-    thumbnail: "",
-    warrantyInformation: "",
-    shippingInformation: "",
-    availabilityStatus: "",
-    returnPolicy: "",
-    reviews: [],
-    images: [],
-  };
-  const [data, setData]: [Product, any] = useState(initialData);
+  const data = useLoaderData() as Product
   const [quantity, setQuantity] = useState(1);
   const dispatch = useDispatch();
-  console.log(data);
-  useEffect(() => {
-    const product = async () => {
-      const response = await axios.get(
-        `http://localhost:3000/api/products/details/${id}`
-      );
-      setData(response.data);
-    };
-    product();
-  }, []);
+  const {toast} = useToast()
   const handleAddToCart = () => {
     dispatch(addToCart({ item: data, quantity: quantity }));
+    toast({ title: "Added to cart", description: "Check your cart", className: "bg-green-500 text-white" });
   }
+  
   return (
-    <div className="my-8">
+    // maybe there is a better way to do this, but it works | issue: product details page not scrolling to top when footer is too close to the scroll position of previous page.
+    <div className="mt-8 mb-32 py-8">
       <div className="grid grid-cols-1 md:grid-cols-5">
         <div className="col-span-2">
           <div>
@@ -128,7 +104,7 @@ export default function ProductDetails() {
           </div>
         </div>
       </div>
-      <div>
+      <div className="border border-secondary mt-16 rounded-xl">
         <Tabs defaultValue="description" className="w-full mt-8  ">
           <TabsList>
             <TabsTrigger value="description">Desciption</TabsTrigger>
@@ -148,7 +124,6 @@ export default function ProductDetails() {
           </TabsContent>
           <TabsContent value="reviews" className=" flex flex-col gap-8 p-4">
           <p className="text-secondary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt magni repellat accusantium. Corporis sapiente suscipit perferendis quo. Voluptatibus voluptates esse quidem excepturi officiis? Quisquam aliquam mollitia unde cum minus ad, rem ullam nostrum recusandae dolore cupiditate. Quos quidem dolorem quaerat maiores accusamus tenetur, debitis ex aspernatur. Tenetur, facilis? Maxime consequuntur nostrum repellendus culpa, dolores dignissimos beatae qui accusantium quos unde quia ipsa deserunt libero! Sed repellendus similique</p>
-         
           </TabsContent>
         </Tabs>
       </div>

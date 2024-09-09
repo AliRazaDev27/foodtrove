@@ -1,17 +1,11 @@
-import { Image } from "@/components/image";
 import { FaSearch } from "react-icons/fa";
 
 export default function Blog(){
   return (
     <div className="grid grid-cols-1 md:grid-cols-4 gap-2 my-4">
 <div className="col-span-3 my-3 space-y-2 px-4">
-{/* <div className="overflow-hidden rounded-lg py-2">
+<div className="overflow-hidden rounded-lg py-2">
   <img src="/blog-1.png" alt="blog_main" className="bg-cover" />
-</div> */}
-<div className="w-full border border-red-500">
-  <div className="w-[200px] h-[300px]">
-  <Image src="https://cdn.dummyjson.com/products/images/mobile-accessories/Amazon%20Echo%20Plus/thumbnail.png" alt="blog_main" loading="lazy" placeholder="/blog-2.png"/>
-  </div>
 </div>
 <div className="flex gap-1 items-center">
 <p className="text-lightred">By Admin </p>

@@ -43,7 +43,14 @@ const router = createBrowserRouter([
           },
           {
             path:"productDetails/:id",
-            element:<ProductDetails/>
+            element:<ProductDetails/>,
+            loader:async({params})=>{
+              const id = params.id
+              console.log(id)
+              const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/products/details/${id}`)
+              return response.json()
+            },
+            
           }
         ]
       },
