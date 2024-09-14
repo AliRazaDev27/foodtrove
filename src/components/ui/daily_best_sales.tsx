@@ -17,7 +17,7 @@ export function DailyBestSales(){
                 <img src="/banner.png" alt="banner" className="bg-contain h-full" />
                 </div>
                 <div className="col-span-1 md:col-span-9  ">
-                    <div className="grid grid-cols-1 md:grid-cols-4 gap-2 ">
+                    <div className="grid grid-cols-1 md:grid-cols-4 gap-4 ">
                            {dailyBestProducts.map((product,index)=>
                            <DailyBestCard key={index} data={product}/>
                         )} 

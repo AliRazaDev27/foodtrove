@@ -26,7 +26,7 @@ export function Header() {
     <header className="hidden md:flex  justify-between items-center my-4 px-2">
       <div className="flex items-center font-bold text-lg">
         <img src="/logo.png" alt="logo" />
-        FoodTrove
+        <Link to="/">FoodTrove</Link>
       </div>
       <nav>
         <ul className="flex gap-2 sm:gap-4 md:gap-8 font-normal text-lg">
@@ -68,7 +68,7 @@ export function Header() {
   <div className="flex justify-between items-center md:hidden my-4 px-4">
   <div className="flex items-center font-bold text-lg">
         <img src="/logo.png" alt="logo" />
-        FoodTrove
+        <Link to="/">FoodTrove</Link>
       </div>
   <SheetTrigger className="block md:hidden"><GiHamburgerMenu /></SheetTrigger>
   </div>

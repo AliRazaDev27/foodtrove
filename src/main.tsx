@@ -21,6 +21,7 @@ import Checkout from './pages/checkout.tsx'
 import About from './pages/about.tsx'
 import Blog from './pages/blog.tsx'
 import Wishlist from './pages/wishlist.tsx'
+import Test from './pages/test.tsx'
 
 const queryClient = new QueryClient()
 
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
       {
         path:"/",
         element:<Home/>
+      },
+      {
+        path:"/test",
+        element:<Test/>
       },
       {
         path:"/shop",
