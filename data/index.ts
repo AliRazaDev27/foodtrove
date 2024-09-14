@@ -196,21 +196,21 @@ export const deals = [
 
 export const topSelling = [
   {
-    title: "Nestle Original Coffee-Mate Coffee Creamer",
+    title: "Nestle Original Coffee-Mate",
     image: "/top_selling_1.png",
     rating: "4.0",
     price: "35",
     disCountedPrice: "30",
   },
   {
-    title: "Nestle Original Coffee-Mate Coffee Creamer",
+    title: "Nestle Original Coffee-Mate",
     image: "/top_selling_2.png",
     rating: "3.8",
     price: "35",
     disCountedPrice: "32",
   },
   {
-    title: "Nestle Original Coffee-Mate Coffee Creamer",
+    title: "Nestle Original Coffee-Mate",
     image: "/top_selling_3.png",
     rating: "3.5",
     price: "30",
@@ -219,21 +219,21 @@ export const topSelling = [
 ];
 export const trending = [
   {
-    title: "Organic Cage-Free Grade A Large Brown Eggs",
+    title: "Organic Cage-Free Grade",
     image: "/trending_1.png",
     rating: "4.2",
     price: "60",
     disCountedPrice: "55",
   },
   {
-    title: "Seeds of Change Organic Quinoa, Brown, & Red Rice",
+    title: "Seeds of Change Organic",
     image: "/trending_2.png",
     rating: "4.0",
     price: "45",
     disCountedPrice: "42",
   },
   {
-    title: "Naturally Flavored Cinnamon Vanilla Light Roast Coffee",
+    title: "Naturally Flavored Cinnamon",
     image: "/trending_3.png",
     rating: "3.7",
     price: "50",
@@ -242,21 +242,21 @@ export const trending = [
 ];
 export const recentlyAdded = [
   {
-    title: "Pepperidge Farm Farmhouse Hearty White Bread",
+    title: "Pepperidge Farm",
     image: "/recently_added_1.png",
     rating: "2.8",
     price: "30",
     disCountedPrice: "27",
   },
   {
-    title: "Organic Frozen Triple Berry Blend",
+    title: "Organic Frozen Triple",
     image: "/recently_added_2.png",
     rating: "3.2",
     price: "32",
     disCountedPrice: "30",
   },
   {
-    title: "Oroweat Country Buttermilk Bread",
+    title: "Oroweat Country Buttermilk",
     image: "/recently_added_3.png",
     rating: "3.5",
     price: "35",
@@ -265,21 +265,21 @@ export const recentlyAdded = [
 ];
 export const topRated = [
   {
-    title: "Foster Farms Takeout Crispy Classic Buffalo Wings",
+    title: "Foster Farms Takeout",
     image: "/top_rated_1.png",
     rating: "4.0",
     price: "40",
     disCountedPrice: "38.5",
   },
   {
-    title: "Angie’s Boomchickapop Sweet & Salty Kettle Corn",
+    title: "Angie’s Boomchickapop",
     image: "/top_rated_2.png",
     rating: "3.6",
     price: "45",
     disCountedPrice: "42",
   },
   {
-    title: "All Natural Italian-Style Chicken Meatballs",
+    title: "All Natural Italian-Style",
     image: "/top_rated_3.png",
     rating: "3.2",
     price: "35",
