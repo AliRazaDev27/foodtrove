@@ -1,9 +1,11 @@
 
 
 export default function Test() {
+   
     return (
-        <div className="h-[80vh] flex gap-4 justify-center items-center">
+        <div className=" flex gap-4 justify-center items-center ">
 test
+
         </div>
             
     )

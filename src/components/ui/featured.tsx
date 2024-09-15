@@ -4,7 +4,7 @@ import {featureCards} from "../../../data/index"
 
 export default function Featured(){
     return(
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 px-8 py-8 md:my-16">
+        <div className="grid  grid-cols-1 md:grid-cols-3 gap-4 px-8 py-16 md:my-16 overflow-hidden">
                 {featureCards.map((card:any,index:number)=>{
                     return(
                         <FeatureCard key={index} card={card}/>
