@@ -20,8 +20,6 @@ export function DailyBestSales(){
                     trigger:".bestProduct",
                     start:"top center",
                     toggleActions:"restart none  reverse none",
-                    markers:true,
-
                 }
             },
         )
