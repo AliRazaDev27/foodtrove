@@ -10,7 +10,7 @@ import { Hero } from "../components/ui/hero";
 
 export default function Home() {
   return (
-    <div className="container mx-auto ">
+    <div className="bg-neutral-800">
       
       <Hero />
       <Featured />

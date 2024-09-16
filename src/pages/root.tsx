@@ -5,7 +5,7 @@ import { Toaster } from "@/components/ui/toaster"
 
 export default function Root() {
     return(
-        <main className="container mx-auto px-2">
+        <main>
         <Header />
         <Outlet />
         <Footer />

@@ -23,7 +23,7 @@ export function Header() {
   console.log(user)
   return (
     <>
-    <header className="hidden md:flex  justify-between items-center my-4 px-2">
+    <header className="container mx-auto hidden md:flex  justify-between items-center my-4 px-2">
       <div className="flex items-center font-bold text-lg">
         <img src="/logo.png" alt="logo" />
         <Link to="/">FoodTrove</Link>

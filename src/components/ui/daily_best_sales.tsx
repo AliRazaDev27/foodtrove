@@ -27,11 +27,11 @@ export function DailyBestSales(){
     return (
         <div className="px-4 md:my-8">
             <div className="flex justify-between py-8 md:my-4">
-                <h1 className="text-3xl text-primary font-bold">Daily Best Sells</h1>
+                <h1 className="text-3xl text-gray-300 font-bold">Daily Best Sells</h1>
                 <ul className="hidden md:flex  gap-5">
-                    <li className="text-lightgreen">Featured</li>
-                    <li>Popular</li>
-                    <li>New added</li>
+                    <li className="text-lightgreen hover:bg-lightgreen hover:text-white px-3 py-2 rounded-3xl transition-all duration-500">Featured</li>
+                    <li className="text-neutral-400 hover:bg-lightgreen hover:text-white px-3 py-2 rounded-3xl transition-all duration-500">Popular</li>
+                    <li className="text-neutral-400 hover:bg-lightgreen hover:text-white px-3 py-2 rounded-3xl transition-all duration-500">New added</li>
                 </ul>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8 ">

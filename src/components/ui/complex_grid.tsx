@@ -32,7 +32,7 @@ export function ComplexGrid(){
             </div>
             <div className="flex flex-col justify-between  gap-8 space-y-8">
                 <h2 className="text-primary font-bold text-2xl underline underline-offset-[16px] decoration-green-300 decoration-3">Trending</h2>
-                {trending.map((card:any,index:number)=> <div className="gridItem"><SmallCard key={index} data={card}/></div>)}   
+                {trending.map((card:any,index:number)=> <div className="gridItem" key={index}><SmallCard key={index} data={card}/></div>)}   
             </div>
             <div className="flex flex-col justify-between  gap-8 space-y-8">
                 <h2 className="text-primary font-bold text-2xl underline underline-offset-[16px] decoration-green-300 decoration-3">Recently Added</h2>

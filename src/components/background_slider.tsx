@@ -1,7 +1,9 @@
-export function BackgroundSlider({direction,rounded,background,color,duration,delay,ease,children}:{direction?:'left'|'right'|'top'|'bottom',rounded?:string,background?:string,color?:string,duration?:number,delay?:string,ease?:string,children:React.ReactNode}) {
+export function BackgroundSlider(
+    {direction,rounded,background,color,duration,delay,ease,children}:{direction?:'left'|'right'|'top'|'bottom',rounded?:string,background?:string,color?:string,duration?:number,delay?:string,ease?:string,children:React.ReactNode}
+)
+    {
     let animate = ""
     if(direction){
-        console.log("wtf")
         if(direction === "left"){
             animate = "top-0 right-[100%] peer-hover:translate-x-[100%]"
         }

@@ -4,7 +4,7 @@ import { MdOutlineLocalPhone } from "react-icons/md";
 
 export function Footer() {
   return (
-    <div>
+    <div className="container mx-auto px-2">
       <div className="grid grid-col-1 sm:grid-cols-6 max-md:gap-8 gap-4 my-8 ">
         <div className="col-span-1 sm:col-span-2 flex flex-col  gap-4 ">
           <div className="flex items-center">
