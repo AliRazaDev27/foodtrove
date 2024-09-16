@@ -6,17 +6,32 @@ export function FeatureCard({ card }: any) {
   gsap.registerPlugin(useGSAP,ScrollTrigger);
   useGSAP(
     () =>{
+      const t1 = gsap.fromTo(".item-drop",{rotateZ:"30",},{
+        rotateZ:"-30",
+        duration:2,
+        repeat:-1,
+        yoyo:true,
+      })
+      t1.play();
       gsap.fromTo(".item-drop",{y:"-100%"},{
         y:0,
+        rotateZ:"0",
         stagger:0.5,
         duration:1.3,
         ease:"bounce.out",
+        onStart:()=>{
+          t1.pause();
+        },
+        onReverseComplete:()=>{
+          t1.play();
+        },
         scrollTrigger:{
         trigger:".item-drop",
         start:"bottom center", 
         end:"top center", 
         toggleActions:"restart none reverse none",
       }})
+      
     } 
   )
   return (
