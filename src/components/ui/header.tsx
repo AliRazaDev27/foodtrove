@@ -3,7 +3,7 @@ import { FaRegHeart } from "react-icons/fa6";
 import { IoCartOutline } from "react-icons/io5";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { useLocation } from "react-router-dom";
-
+import { DirectionalSlider } from "../directional_slider";
 import {
     Sheet,
     SheetContent,
@@ -31,13 +31,31 @@ export function Header() {
       <nav>
         <ul className="flex gap-2 sm:gap-4 md:gap-8 font-normal text-lg">
           <li>
-            <Link to="/shop" className={location.pathname === "/shop" ? "text-red-500 font-semibold transition-all duration-1000 hover:underline underline-offset-8 decoration-[2px] " : "transition-all duration-1000 hover:underline underline-offset-8 decoration-[2px] decoration-lightred"}>Shop</Link>
+          <div className="overflow-hidden">
+            <DirectionalSlider>
+              <div className="px-3 py-2 hover:text-white">
+            <Link to="/shop" className={location.pathname === "/shop" ? "text-red-500 font-semibold " : ""}>Shop</Link>
+            </div>
+            </DirectionalSlider>
+            </div>
           </li>
           <li>
-            <Link to="/about" className={location.pathname === "/pages" ? "text-red-500 font-semibold transition-all duration-1000 hover:underline underline-offset-8 decoration-[2px] " : "transition-all duration-1000 hover:underline underline-offset-8 decoration-[2px] decoration-lightred"}>About</Link>
+          <div className="overflow-hidden">
+            <DirectionalSlider>
+              <div className="px-3 py-2 hover:text-white">
+            <Link to="/about" className={location.pathname === "/pages" ? "text-red-500 font-semibold" : ""}>About</Link>
+            </div>
+            </DirectionalSlider>
+            </div>
           </li>
           <li>
-            <Link to="/blog" className={location.pathname === "/blog" ? "text-red-500 font-semibold transition-all duration-1000 hover:underline underline-offset-8 decoration-[2px] " : "transition-all duration-1000 hover:underline underline-offset-8 decoration-[2px] decoration-lightred"}>Blog</Link>
+          <div className="overflow-hidden">
+            <DirectionalSlider>
+              <div className="px-3 py-2 hover:text-white">
+            <Link to="/blog" className={location.pathname === "/blog" ? "text-red-500 font-semibold" : ""}>Blog</Link>
+            </div>
+            </DirectionalSlider>
+            </div>
           </li>
         </ul>
       </nav>
