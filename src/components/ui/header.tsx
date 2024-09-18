@@ -14,6 +14,7 @@ import {
   } from "@/components/ui/sheet"
   import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { WaterFallBorder } from "../waterfall_border";
   
 
 export function Header() {
@@ -24,10 +25,12 @@ export function Header() {
   return (
     <>
     <header className="container mx-auto hidden md:flex  justify-between items-center my-4 px-2">
-      <div className="flex items-center font-bold text-lg">
+      <WaterFallBorder >
+      <div className="flex items-center font-bold text-lg bg-white px-2 py-2 ">
         <img src="/logo.png" alt="logo" />
         <Link to="/">FoodTrove</Link>
       </div>
+      </WaterFallBorder>
       <nav>
         <ul className="flex gap-2 sm:gap-4 md:gap-8 font-normal text-lg">
           <li>
