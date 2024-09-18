@@ -2,7 +2,7 @@ import { FaStar } from "react-icons/fa";
 
 export function SmallCard({data}:any){
     return(
-        <div className="flex justify-between hover:scale-110 bg-white shadow-2xl shadow-neutral-500   skew-y-12 hover:skew-y-0 transition-transform duration-500 hover:shadow-2xl hover:shadow-black px-2 py-2 rounded-2xl border border-gray-400  items-center gap-2">
+        <div className="flex justify-between overflow-hidden hover:scale-110 bg-white shadow-2xl shadow-neutral-600   skew-y-12 hover:skew-y-0 transition-transform duration-500 hover:shadow-2xl hover:shadow-black px-2 py-2 rounded-2xl border border-gray-400  items-center gap-2">
             <img src={data.image} alt="card" />
             <div>
                 <p className="text-primary font-bold">{data.title}</p>

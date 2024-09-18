@@ -10,8 +10,7 @@ import { Hero } from "../components/ui/hero";
 
 export default function Home() {
   return (
-    <div className="bg-neutral-800">
-      
+    <div className="bg-neutral-800 border border-neutral-900">
       <Hero />
       <Featured />
       <PopularProducts />

@@ -26,7 +26,7 @@ export function Header() {
     <>
     <header className="container mx-auto hidden md:flex  justify-between items-center my-4 px-2">
       <WaterFallBorder >
-      <div className="flex items-center font-bold text-lg bg-white px-2 py-2 ">
+      <div className="flex pacifico-regular items-center font-bold text-lg md:text-2xl bg-white px-2 py-2 ">
         <img src="/logo.png" alt="logo" />
         <Link to="/">FoodTrove</Link>
       </div>

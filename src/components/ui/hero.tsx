@@ -5,40 +5,47 @@ import gsap from "gsap"
 import { useGSAP } from "@gsap/react";
 import { TextPlugin } from "gsap/all";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useRef } from "react";
 
 export function Hero(){
- gsap.registerPlugin(useGSAP,TextPlugin,ScrollTrigger);
- 
+  const mediaQuery = window.matchMedia("(min-width: 768px)");
+  const containerRef = useRef<HTMLDivElement>(null);
+  const textRef = useRef<HTMLDivElement>(null);
+  if(mediaQuery.matches){
+    gsap.registerPlugin(useGSAP,TextPlugin,ScrollTrigger);
+  }
  useGSAP(() => {
-    gsap.to("#textDiv", {
+  if(mediaQuery.matches){
+    gsap.to(textRef.current, {
       text: {
         value:"The best way to stuff your wallet.",
         newClass: "",
       },
       duration: 2,
-      delay:0.5,
-      ease: "power1.in",
+      delay:1,
+      ease: "power1.inOut",
     })
-    gsap.fromTo(".item",{
-        rotateX:15
+    gsap.fromTo(containerRef.current,{
+        rotateX:10
     },{
         rotateX:0,
         scrollTrigger:{
-            trigger:".item",
+            trigger:containerRef.current,
             start:"top 30%",
             end:"bottom 100%",
             scrub:true,
             toggleActions:"restart none  reverse none",
         }
-    })     
+    })
+  }     
  })
 
     return(
-        <div className="overflow-hidden  mt-[100px] " style={{perspective:"200px"}}>
-        <div className="relative item flex flex-col-reverse leading md:flex-row  justify-evenly min-h-[90vh] items-center bg-gray-300">
+        <div className="overflow-hidden  md:mt-[100px] " style={{perspective:"200px"}}>
+        <div ref={containerRef} className="relative  flex flex-col-reverse leading md:flex-row  justify-evenly min-h-[90vh] items-center bg-gray-300">
                 <div className="flex   flex-col items-center gap-4 py-2 px-2  md:w-1/2">
                     <p className="text-lg sm:text-xl  font-bold leading-6 tracking-wider"><span className=" text-red-600 underline underline-offset-4 font-bold pr-1">100%</span> Organic Vegetables</p>
-                    <div id="textDiv" className="text-3xl md:text-4xl md:leading-[60px] font-extrabold  w-[75%] text-center  mx-auto "></div>
+                    <div ref={textRef} className="text-3xl md:text-5xl pacifico-regular md:leading-[60px] font-extrabold  w-[75%] text-center  mx-auto "><p className="md:hidden">The best way to stuff your wallet.</p></div>
                     <p className="text-gray-500 leading-6 w-[75%] text-center sm:w-full">Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet
                     reiciendis beatae consequuntur.
                     </p>

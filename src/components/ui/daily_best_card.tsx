@@ -2,7 +2,7 @@ import { BackgroundSlider } from "../background_slider";
 
 export function DailyBestCard({data}:any){
     return(
-        <div className="relative  hover:shadow-2xl hover:shadow-black transition bg-white duration-500 ease-out flex flex-col h-full  items-center text-center  px-2 justify-between py-2 border border-gray-400 rounded-2xl ">
+        <div className="relative overflow-hidden hover:shadow-2xl hover:shadow-black transition bg-white duration-500 ease-out flex flex-col gap-2 md:gap-0 h-full  items-center text-center  px-2 justify-between py-2 border border-gray-400 rounded-2xl ">
             {data.tag !== "" && <div className="absolute top-0 left-0 bg-lightred text-white px-4 py-2 rounded-tl-2xl rounded-br-3xl">{data.tag}</div>}
             <div className="mt-4">
             <img src={data.image} alt="product" className="bg-cover"/>

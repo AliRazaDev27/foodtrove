@@ -8,7 +8,7 @@ export function PopularProductCard({product}:any){
         <div className="relative bg-white border border-gray-400  hover:shadow-2xl hover:shadow-current  rounded-3xl hover:scale-105 group transition-all duration-500 overflow-hidden">
             {
                 product.tag !== "" && 
-                <div className="absolute  top-0  group-hover:translate-x-[100%]  transition-all duration-1000  w-full   "><div className="bg-lightred group-hover:bg-lightgreen group-hover:font-bold text-white w-max px-6 py-3 rounded-tl-3xl rounded-br-3xl group-hover:rounded-none group-hover:rounded-tr-3xl group-hover:rounded-bl-3xl transition-all duration-1000 group-hover:-translate-x-[100%]">{product.tag}</div></div>
+                <div className="absolute  top-0  md:group-hover:translate-x-[100%]  transition-all duration-1000  w-full   "><div className="bg-lightred md:group-hover:bg-lightgreen group-hover:font-bold text-white w-max px-6 py-3 rounded-tl-3xl rounded-br-3xl md:group-hover:rounded-none md:group-hover:rounded-tr-3xl md:group-hover:rounded-bl-3xl transition-all duration-1000 md:group-hover:-translate-x-[100%]">{product.tag}</div></div>
             }
             <div className="px-8 space-y-2 pb-3">
             <img src={product.image} alt="product" className="mx-auto" />

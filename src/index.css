@@ -35,6 +35,9 @@ html {
   100%{
     transform:translateX(100vw);
   }
-  
-  
+}
+.pacifico-regular {
+  font-family: "Pacifico", cursive;
+  font-weight: 400;
+  font-style: normal;
 }

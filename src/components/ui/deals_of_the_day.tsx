@@ -4,8 +4,12 @@ import gsap from "gsap"
 import { useGSAP } from "@gsap/react"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 export function DealsOfTheDay(){
+    const mediaQuery = window.matchMedia("(min-width: 768px)")
+    if(mediaQuery.matches){
     gsap.registerPlugin(useGSAP,ScrollTrigger);
+    }
     useGSAP(() => {
+        if(!mediaQuery.matches) return
         gsap.fromTo(".deal",{x:function(index,_,targets){
             if(index<targets.length/2){ return `-100vw`;}
             else{return `100vw`;}}},

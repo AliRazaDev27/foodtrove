@@ -5,8 +5,12 @@ import { useGSAP } from "@gsap/react"
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export function DailyBestSales(){
-    gsap.registerPlugin(useGSAP,ScrollTrigger);
+    const mediaQuery = window.matchMedia("(min-width: 768px)")
+    if(mediaQuery.matches){
+        gsap.registerPlugin(useGSAP,ScrollTrigger);    
+    }
     useGSAP(() => {
+        if(!mediaQuery.matches) return
         gsap.fromTo(".bestProduct",
             {x:function(index){return `-${index*100}%`}},
             {

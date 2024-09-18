@@ -3,28 +3,18 @@ import gsap from "gsap";
 import {useGSAP} from "@gsap/react"
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 export function FeatureCard({ card }: any) {
-  gsap.registerPlugin(useGSAP,ScrollTrigger);
+  const mediaQuery = window.matchMedia("(min-width: 768px)");
+  if(mediaQuery.matches){
+    gsap.registerPlugin(useGSAP,ScrollTrigger);
+  }
   useGSAP(
     () =>{
-      const t1 = gsap.fromTo(".item-drop",{rotateZ:"30",},{
-        rotateZ:"-30",
-        duration:2,
-        repeat:-1,
-        yoyo:true,
-      })
-      t1.play();
+      if(!mediaQuery.matches) return
       gsap.fromTo(".item-drop",{y:"-100%"},{
         y:0,
-        rotateZ:"0",
         stagger:0.5,
-        duration:1.3,
+        duration:1,
         ease:"bounce.out",
-        onStart:()=>{
-          t1.pause();
-        },
-        onReverseComplete:()=>{
-          t1.play();
-        },
         scrollTrigger:{
         trigger:".item-drop",
         start:"bottom center", 
@@ -37,7 +27,7 @@ export function FeatureCard({ card }: any) {
   return (
     <div className="item-drop ">
       <div
-      className="flex  flex-col justify-evenly md:justify-between  gap-4 px-4 py-2 md:py-8  bg-neutral-300  bg-cover bg-right rounded-xl aspect-[1.7] border border-gray-400  hover:rounded-3xl -skew-y-12  hover:skew-y-0  shadow-2xl hover:shadow hover:scale-105 shadow-gray-600  transition-all  duration-500"
+      className="flex  flex-col justify-evenly md:justify-between  gap-4 px-4 py-2 md:py-8  bg-neutral-300  bg-cover bg-right rounded-xl aspect-[1.7] border border-gray-400  hover:rounded-3xl -skew-y-12  hover:skew-y-0  shadow-md hover:shadow hover:scale-105 shadow-lime-900  transition-all  duration-500"
       style={{ backgroundImage: `url(${card.imgage})` }}
     >
       <p className="md:w-[60%] text-primary text-2xl font-bold">{card.title}</p>
