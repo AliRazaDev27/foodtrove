@@ -25,19 +25,19 @@ export function Header() {
   return (
     <>
     <header className="container mx-auto hidden md:flex  justify-between items-center my-4 px-2">
-      <WaterFallBorder >
+      <WaterFallBorder  borderColor="bg-gradient-to-b from-red-400 to-red-700" >
       <div className="flex pacifico-regular items-center font-bold text-lg md:text-2xl bg-white px-2 py-2 ">
         <img src="/logo.png" alt="logo" />
         <Link to="/">FoodTrove</Link>
       </div>
       </WaterFallBorder>
       <nav>
-        <ul className="flex gap-2 sm:gap-4 md:gap-8 font-normal text-lg">
+        <ul className="flex gap-2 sm:gap-4 md:gap-8 font-normal text-xl">
           <li>
           <div className="overflow-hidden">
             <DirectionalSlider>
               <div className="px-3 py-2 hover:text-white">
-            <Link to="/shop" className={location.pathname === "/shop" ? "text-red-500 font-semibold " : ""}>Shop</Link>
+            <Link to="/shop" className={location.pathname === "/shop" ? "text-red-500 font-bold " : ""}>Shop</Link>
             </div>
             </DirectionalSlider>
             </div>
@@ -46,7 +46,7 @@ export function Header() {
           <div className="overflow-hidden">
             <DirectionalSlider>
               <div className="px-3 py-2 hover:text-white">
-            <Link to="/about" className={location.pathname === "/pages" ? "text-red-500 font-semibold" : ""}>About</Link>
+            <Link to="/about" className={location.pathname === "/about" ? "text-red-500 font-bold" : ""}>About</Link>
             </div>
             </DirectionalSlider>
             </div>
@@ -55,7 +55,7 @@ export function Header() {
           <div className="overflow-hidden">
             <DirectionalSlider>
               <div className="px-3 py-2 hover:text-white">
-            <Link to="/blog" className={location.pathname === "/blog" ? "text-red-500 font-semibold" : ""}>Blog</Link>
+            <Link to="/blog" className={location.pathname === "/blog" ? "text-red-500 font-bold" : ""}>Blog</Link>
             </div>
             </DirectionalSlider>
             </div>
@@ -108,7 +108,7 @@ export function Header() {
             <Link to="/shop" className={location.pathname === "/shop" ? "text-red-500 font-semibold transition-all duration-1000 hover:underline underline-offset-8 decoration-[2px] " : "transition-all duration-1000 hover:underline underline-offset-8 decoration-[2px] decoration-lightred"}>Shop</Link>
           </li>
           <li>
-            <Link to="/about" className={location.pathname === "/pages" ? "text-red-500 font-semibold transition-all duration-1000 hover:underline underline-offset-8 decoration-[2px] " : "transition-all duration-1000 hover:underline underline-offset-8 decoration-[2px] decoration-lightred"}>About</Link>
+            <Link to="/about" className={location.pathname === "/about" ? "text-red-500 font-semibold transition-all duration-1000 hover:underline underline-offset-8 decoration-[2px] " : "transition-all duration-1000 hover:underline underline-offset-8 decoration-[2px] decoration-lightred"}>About</Link>
           </li>
           <li>
             <Link to="/blog" className={location.pathname === "/blog" ? "text-red-500 font-semibold transition-all duration-1000 hover:underline underline-offset-8 decoration-[2px] " : "transition-all duration-1000 hover:underline underline-offset-8 decoration-[2px] decoration-lightred"}>Blog</Link>

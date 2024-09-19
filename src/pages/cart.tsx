@@ -94,7 +94,7 @@ export default function Cart() {
           </div>
         </>
       ) : (
-        <div className="text-center flex flex-col gap-4 items-center justify-center min-h-[80vh] py-4 border border-black">
+        <div className="text-center flex flex-col gap-4 items-center justify-center min-h-[80vh] py-4 px-4">
           <p className="font-semibold text-3xl">Your cart is empty</p>
           <Link
             to="/shop"

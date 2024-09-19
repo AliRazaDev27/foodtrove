@@ -1,6 +1,6 @@
 const about = () => {
   return (
-    <div className='grid grid-cols-1 sm:grid-cols-2 gap-8 my-12'>
+    <div className='grid grid-cols-1 sm:grid-cols-2 gap-8 px-4 my-12'>
         <div className='flex flex-col justify-between'>
             <h1 className='text-3xl font-semibold'>About the Carrot</h1>
             <div className='flex flex-col gap-2'>

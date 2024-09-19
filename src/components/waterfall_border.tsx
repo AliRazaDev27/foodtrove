@@ -3,7 +3,7 @@ import { useGSAP } from "@gsap/react";
 import { Observer } from "gsap/Observer";
 import { useRef } from "react";
 
-export  function WaterFallBorder({px="2px",py="2px",borderColor="bg-lightgreen",bottomColor="bg-white",borderRadius="0%",durationTop=1,durationSide=1,durationBottom=1,delayTop=0,delaySide=0,delayBottom=0,children}:{px?:string,py?:string,borderColor?:string,bottomColor?:string,borderRadius?:string,durationTop?:number,durationSide?:number,durationBottom?:number,delayTop?:number,delaySide?:number,delayBottom?:number,children:React.ReactNode}) {
+export  function WaterFallBorder({px="6px",py="6px",borderColor="bg-lightgreen",bottomColor="bg-white",borderRadius="0%",durationTop=1,durationSide=1,durationBottom=1,delayTop=0,delaySide=0,delayBottom=0,children}:{px?:string,py?:string,borderColor?:string,bottomColor?:string,borderRadius?:string,durationTop?:number,durationSide?:number,durationBottom?:number,delayTop?:number,delaySide?:number,delayBottom?:number,children:React.ReactNode}) {
     const observerRef = useRef<HTMLDivElement>(null);
     const borderRef = useRef<HTMLDivElement>(null);
     const bottomRef = useRef<HTMLDivElement>(null);
@@ -90,7 +90,7 @@ export  function WaterFallBorder({px="2px",py="2px",borderColor="bg-lightgreen",
     });
     return (
       
-        <div ref={observerRef} className={`relative overflow-hidden`} style={{paddingInline:px,paddingBlock:py,borderRadius:borderRadius}}>
+        <div ref={observerRef} className={`relative border overflow-hidden`} style={{paddingInline:px,paddingBlock:py,borderRadius:borderRadius}}>
           <div ref={borderRef} className={` -z-10 ${borderColor}`} />
           {children}
           <div ref={bottomRef} className={` ${bottomColor}`} />
