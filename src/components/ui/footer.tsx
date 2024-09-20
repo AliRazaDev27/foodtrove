@@ -5,8 +5,8 @@ import { MdOutlineLocalPhone } from "react-icons/md";
 export function Footer() {
   return (
     <div className="container mx-auto px-2">
-      <div className="grid grid-col-1 sm:grid-cols-6 max-md:gap-8 gap-4 my-8 ">
-        <div className="col-span-1 sm:col-span-2 flex flex-col  gap-4 ">
+      <div className="grid grid-col-1 md:grid-cols-6 max-md:gap-8 gap-4 my-8 ">
+        <div className="col-span-1 md:col-span-2 flex flex-col  gap-4 ">
           <div className="flex items-center">
             <img src="/logo.png" alt="logo" />
             <h2 className="text-lg font-bold">FoodTrove</h2>
@@ -54,33 +54,33 @@ export function Footer() {
         </div>
         <div className="col-span-1 md:col-span-2 flex flex-col gap-4 ">
             <h2 className="text-lg font-bold max-md:text-center">Subscribe Our Newsletter</h2>
-            <div className="flex items-center max-md:mx-2 border border-gray-500 overflow-hidden rounded-xl   ">
-            <input type="text"  placeholder="Your email address" className="outline-none py-3 px-6"/>
-            {/* <button className="w-min px-3 bg-black">
-                <img src="/vector.png" alt="vector" />
-            </button> */}
+            <div className="flex items-center max-md:mx-2 border border-gray-400 overflow-hidden rounded-xl   ">
+            <input type="text"  placeholder="Your email address" className="outline-none py-3 px-6 w-[90%]"/>
+            <button className=" px-3">
+                <img src="/vector.webp" alt="vector" />
+            </button>
             </div>
             <div className="flex flex-wrap justify-center items-center gap-4 my-4">
-                <img src="/social1.png" alt="social" />
-                <img src="/social2.png" alt="social" />
-                <img src="/social3.png" alt="social" />
-                <img src="/social4.png" alt="social" />
+                <img src="/social1.webp" alt="social" />
+                <img src="/social2.webp" alt="social" />
+                <img src="/social3.webp" alt="social" />
+                <img src="/social4.webp" alt="social" />
             </div>
             <div className="flex flex-wrap gap-2 items-center justify-center shrink overflow-hidden">
                <div>
-               <img src="/footer_1.png" alt="footer" className="bg-cover"/>
+               <img src="/footer_1.webp" alt="footer"/>
                </div>
                <div>
-               <img src="/footer_2.png" alt="footer" className="bg-cover"/>
+               <img src="/footer_2.webp" alt="footer"/>
                </div>
                <div>
-               <img src="/footer_3.png" alt="footer" className="bg-cover"/>
+               <img src="/footer_3.webp" alt="footer"/>
                </div>
                <div>
-               <img src="/footer_4.png" alt="footer" className="bg-cover"/>
+               <img src="/footer_4.webp" alt="footer"/>
                </div>
                <div>
-               <img src="/footer_5.png" alt="footer" className="bg-cover"/>
+               <img src="/footer_5.webp" alt="footer"/>
                </div>
             </div>
         </div>

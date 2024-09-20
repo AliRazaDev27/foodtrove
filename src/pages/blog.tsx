@@ -1,11 +1,12 @@
 import { FaSearch } from "react-icons/fa";
+import lcp from "/blog-1.webp"
 
 export default function Blog(){
   return (
     <div className="grid grid-cols-1 md:grid-cols-4 gap-2 my-4">
 <div className="col-span-3 my-3 space-y-2 px-4">
-<div className="overflow-hidden rounded-lg py-2">
-  <img src="/blog-1.png" alt="blog_main" className="bg-cover" />
+<div className="overflow-hidden rounded-lg">
+  <img src={lcp} alt="blog_main" width={966} height={464}/>
 </div>
 <div className="flex gap-1 items-center">
 <p className="text-lightred">By Admin </p>
@@ -27,14 +28,14 @@ nostrum repellendus dolorem placeat vero odit.
 <div className="flex items-center gap-4 p-2">
 <div className="space-y-2">
   <div className="overflow-hidden rounded-lg">
-    <img src="/blog-2.png" alt="blog2" className="bg-cover" />
+    <img src="/blog-2.webp" alt="blog2"/>
   </div>
   <p className="font-semibold">Lorem ipsum dolor consectetur adipisicing elit.
   Molestias, dolorum!</p>
 </div>
 <div className="space-y-2">
   <div className="overflow-hidden rounded-lg">
-    <img src="/blog-3.png" alt="blog2" className="bg-cover" />
+    <img src="/blog-3.webp" alt="blog2"/>
   </div>
   <p className="font-semibold">Lorem ipsum dolor consectetur adipisicing elit.
   Molestias, dolorum!</p>
@@ -47,12 +48,11 @@ voluptatem cum iste exercitationem rem.</p>
   <p className="text-lightred text-lg font-semibold">John Martin</p>
 </div>
 <div>
-
 </div>
 </div>
 <div className="col-span-1 my-4 px-2">
-  <div className="flex  justify-between border overflow-hidden border-neutral-400 rounded-md">
-    <input placeholder="Search here" className="outline-none p-2"/>
+  <div className="flex shrink  justify-between border overflow-hidden border-neutral-400 rounded-md">
+    <input placeholder="Search here" className="outline-none p-2 w-[80%]"/>
    <div className="bg-lightred flex items-center p-2">
    <FaSearch className="size-4 text-white"/>
    </div>
@@ -60,7 +60,7 @@ voluptatem cum iste exercitationem rem.</p>
   <div className="my-4">
     <h2 className="text-lg font-medium">Recent Posts</h2>
     <div className="my-3 rounded-lg overflow-hidden">
-      <img src="/blog-1.png" alt="blog1" className="bg-cover"/>
+      <img src="/blog-1.webp" alt="blog1"/>
     </div>
     <div className="text-center">
       <p className="text-lightred">Sep 09, 2023</p>
@@ -72,24 +72,11 @@ voluptatem cum iste exercitationem rem.</p>
   <div className="my-4">
     <h2 className="text-lg font-medium">Latest Gallery</h2>
     <div className="flex flex-wrap gap-2 my-3 px-2">
-<div>
-  <img src="/footer_1.png" alt="f1" className="bg-cover" />
-</div>
-<div>
-  <img src="/footer_2.png" alt="f2" className="bg-cover" />
-</div>
-<div>
-  <img src="/footer_3.png" alt="f3" className="bg-cover" />
-</div>
-<div>
-  <img src="/footer_4.png" alt="f4" className="bg-cover" />
-</div>
-<div>
-  <img src="/footer_5.png" alt="f5" className="bg-cover" />
-</div>
-<div>
-  <img src="/footer_1.png" alt="f6" className="bg-cover" />
-</div>
+  <img src="/footer_1.webp" alt="f1"/>
+  <img src="/footer_2.webp" alt="f2"/>
+  <img src="/footer_3.webp" alt="f3"/>
+  <img src="/footer_4.webp" alt="f4"/>
+  <img src="/footer_5.webp" alt="f5"/>
     </div>
   </div>
   <div className="my-4">

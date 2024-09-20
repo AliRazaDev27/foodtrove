@@ -1,5 +1,5 @@
 import './index.css'
-import { StrictMode } from 'react'
+import { lazy, StrictMode, Suspense } from 'react'
 import { createRoot } from 'react-dom/client'
 import {
   QueryClient,
@@ -8,20 +8,21 @@ import {
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import {Provider} from "react-redux"
 import store from "./store"
-import Root from './pages/root.tsx'
-import Home from './pages/home.tsx'
-import Register from './pages/register.tsx'
-import Login from './pages/login.tsx'
-import Seed from './pages/seed.tsx'
-import Products from './pages/products.tsx'
-import ProductDetails from './pages/product_details.tsx'
-import ShopLayout from './pages/shop_layout.tsx'
-import Cart from './pages/cart.tsx'
-import Checkout from './pages/checkout.tsx'
-import About from './pages/about.tsx'
-import Blog from './pages/blog.tsx'
-import Wishlist from './pages/wishlist.tsx'
-import Test from './pages/test.tsx'
+
+const Root = lazy(()=>import('./pages/root.tsx'))
+const Home = lazy(()=>import('./pages/home.tsx'))
+const Register = lazy(()=>import('./pages/register.tsx'))
+const Login = lazy(()=>import('./pages/login.tsx'))
+const Seed = lazy(()=>import('./pages/seed.tsx'))
+const Products = lazy(()=>import('./pages/products.tsx'))
+const ProductDetails = lazy(()=>import('./pages/product_details.tsx'))
+const ShopLayout = lazy(()=>import('./pages/shop_layout.tsx'))
+const Cart = lazy(()=>import('./pages/cart.tsx'))
+const Checkout = lazy(()=>import('./pages/checkout.tsx'))
+const About = lazy(()=>import('./pages/about.tsx'))
+const Blog = lazy(()=>import('./pages/blog.tsx'))
+const Wishlist = lazy(()=>import('./pages/wishlist.tsx'))
+const Test = lazy(()=>import('./pages/test.tsx'))
 
 const queryClient = new QueryClient()
 
@@ -99,7 +100,9 @@ createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <QueryClientProvider client={queryClient}>
     <Provider store={store}>
+      <Suspense fallback={null}>
     <RouterProvider router={router}/>
+    </Suspense>
     </Provider>
     </QueryClientProvider>
   </StrictMode>,
