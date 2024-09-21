@@ -90,7 +90,7 @@ export  function WaterFallBorder({px="6px",py="6px",borderColor="bg-lightgreen",
     });
     return (
       
-        <div ref={observerRef} className={`relative border overflow-hidden`} style={{paddingInline:px,paddingBlock:py,borderRadius:borderRadius}}>
+        <div ref={observerRef} className={`relative border border-white overflow-hidden`} style={{paddingInline:px,paddingBlock:py,borderRadius:borderRadius}}>
           <div ref={borderRef} className={` -z-10 ${borderColor}`} />
           {children}
           <div ref={bottomRef} className={` ${bottomColor}`} />

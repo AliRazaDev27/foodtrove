@@ -11,7 +11,7 @@ export function SubscribeCard(){
 <button className="hidden md:block  text-white px-4 py-4 rounded-full">Subscribe</button>
 </BackgroundSlider>
 <button className="md:hidden -translate-x-4">
-<svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" className="text-gray-700" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="m53.12 199.94 400-151.39a8 8 0 0 1 10.33 10.33l-151.39 400a8 8 0 0 1-15-.34l-67.4-166.09a16 16 0 0 0-10.11-10.11L53.46 215a8 8 0 0 1-.34-15.06zM460 52 227 285"></path></svg>
+<svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 512 512" className="text-gray-700" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="32" d="m53.12 199.94 400-151.39a8 8 0 0 1 10.33 10.33l-151.39 400a8 8 0 0 1-15-.34l-67.4-166.09a16 16 0 0 0-10.11-10.11L53.46 215a8 8 0 0 1-.34-15.06zM460 52 227 285"></path></svg>
 </button>
                     </div>
             </div>
