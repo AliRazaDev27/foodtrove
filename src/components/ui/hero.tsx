@@ -1,5 +1,3 @@
-import { RxCross1 } from "react-icons/rx";
-import { IoPaperPlaneOutline } from "react-icons/io5";
 import { BackgroundSlider } from "../background_slider";
 import gsap from "gsap"
 import { useGSAP } from "@gsap/react";
@@ -50,13 +48,13 @@ export function Hero(){
                     reiciendis beatae consequuntur.
                     </p>
                     <div className="flex items-center justify-between bg-white border   sm:w-max rounded-full overflow-hidden">
-                    <IoPaperPlaneOutline className="hidden md:block text-gray-700   translate-x-2" />
+                    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" className=" hidden md:block text-gray-700   translate-x-2" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="m53.12 199.94 400-151.39a8 8 0 0 1 10.33 10.33l-151.39 400a8 8 0 0 1-15-.34l-67.4-166.09a16 16 0 0 0-10.11-10.11L53.46 215a8 8 0 0 1-.34-15.06zM460 52 227 285"></path></svg>
                         <input type="text" className="outline-none w-[90%] sm:w-full p-2 md:px-8 md:py-4 bg-transparent" placeholder="Your email address"/>
                         <div>
                         <BackgroundSlider background="bg-lightred" color="bg-lightgreen" rounded="rounded-e-full"><button className="px-4 sm:block hidden py-4 text-white">Subscribe</button></BackgroundSlider>
                         </div>
                         <button className="sm:hidden block  py-3 px-4  bg-lightred">
-                        <IoPaperPlaneOutline className=" text-gray-100" />
+                        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" className=" text-gray-100" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="m53.12 199.94 400-151.39a8 8 0 0 1 10.33 10.33l-151.39 400a8 8 0 0 1-15-.34l-67.4-166.09a16 16 0 0 0-10.11-10.11L53.46 215a8 8 0 0 1-.34-15.06zM460 52 227 285"></path></svg>
                         </button>
                     </div>
                 </div>
@@ -66,7 +64,7 @@ export function Hero(){
                           className="hover:translate-y-6  hover:-rotate-[6deg]  transition-transform duration-1000  text-lightgreen hover:text-white" >
                             <BackgroundSlider rounded="rounded-full" direction="right" color="bg-lightgreen" delay={"delay-200"} ease="ease-in" duration={1000}>
                             <div className="flex items-center gap-1 px-4 py-2">
-                            <RxCross1 className="text-gray-600"/> <span className="font-bold">Shopping</span>
+                            <RxCross1/> <span className="font-bold">Shopping</span>
                             </div>
                             </BackgroundSlider>
                             </li>
@@ -74,7 +72,7 @@ export function Hero(){
                           className="hover:translate-y-6 hover:-rotate-[6deg]  transition-transform duration-1000  text-lightgreen hover:text-white" >
                             <BackgroundSlider rounded="rounded-full" direction="right" color="bg-lightgreen" delay={"delay-200"} ease="ease-in" duration={1000}>
                             <div className="flex items-center gap-1 px-4 py-2">
-                            <RxCross1 className="text-gray-600"/> <span className="font-bold">Recipes</span>
+                            <RxCross1/> <span className="font-bold">Recipes</span>
                             </div>
                             </BackgroundSlider>
                             </li>
@@ -82,7 +80,7 @@ export function Hero(){
                           className="hover:translate-y-6 hover:-rotate-[6deg]  transition-transform duration-1000  text-lightgreen hover:text-white" >
                             <BackgroundSlider rounded="rounded-full" direction="right" color="bg-lightgreen" delay={"delay-200"} ease="ease-in" duration={1000}>
                             <div className="flex items-center gap-1 px-4 py-2">
-                            <RxCross1 className="text-gray-600"/> <span className="font-bold">Kitchen</span>
+                            <RxCross1/> <span className="font-bold">Kitchen</span>
                             </div>
                             </BackgroundSlider>
                             </li>
@@ -90,7 +88,7 @@ export function Hero(){
                           className="hover:translate-y-6 hover:-rotate-[6deg]  transition-transform duration-1000 text-lightgreen hover:text-white" >
                             <BackgroundSlider rounded="rounded-full" direction="right" color="bg-lightgreen" delay={"delay-200"} ease="ease-in" duration={1000}>
                             <div className="flex items-center gap-1 px-4 py-2">
-                            <RxCross1 className="text-gray-600"/> <span className="font-bold">News</span>
+                            <RxCross1/> <span className="font-bold">News</span>
                             </div>
                             </BackgroundSlider>
                             </li>
@@ -98,7 +96,7 @@ export function Hero(){
                           className="hover:translate-y-6 hover:-rotate-[6deg]  transition-transform duration-1000 text-lightgreen hover:text-white" >
                             <BackgroundSlider rounded="rounded-full" direction="right" color="bg-lightgreen" delay={"delay-200"} ease="ease-in" duration={1000}>
                             <div className="flex items-center gap-1 px-4 py-2">
-                            <RxCross1 className="text-gray-600"/> <span className="font-bold">Food</span>
+                            <RxCross1/> <span className="font-bold">Food</span>
                             </div>
                             </BackgroundSlider>
                             </li>
@@ -110,4 +108,10 @@ export function Hero(){
             </div>
             </div> 
     )
+}
+
+const RxCross1 = ()=>{
+  return(
+    <svg stroke="currentColor" fill="none" stroke-width="0" viewBox="0 0 15 15" className="text-gray-600" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M12.8536 2.85355C13.0488 2.65829 13.0488 2.34171 12.8536 2.14645C12.6583 1.95118 12.3417 1.95118 12.1464 2.14645L7.5 6.79289L2.85355 2.14645C2.65829 1.95118 2.34171 1.95118 2.14645 2.14645C1.95118 2.34171 1.95118 2.65829 2.14645 2.85355L6.79289 7.5L2.14645 12.1464C1.95118 12.3417 1.95118 12.6583 2.14645 12.8536C2.34171 13.0488 2.65829 13.0488 2.85355 12.8536L7.5 8.20711L12.1464 12.8536C12.3417 13.0488 12.6583 13.0488 12.8536 12.8536C13.0488 12.6583 13.0488 12.3417 12.8536 12.1464L8.20711 7.5L12.8536 2.85355Z" fill="currentColor"></path></svg>
+  )
 }

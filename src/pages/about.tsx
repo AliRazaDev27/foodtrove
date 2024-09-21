@@ -1,4 +1,4 @@
-export default function About() {
+export  function Component() {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 px-4 my-12">
       <div className="flex flex-col justify-between">

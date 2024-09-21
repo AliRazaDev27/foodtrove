@@ -1,7 +1,7 @@
 import { FaSearch } from "react-icons/fa";
 import lcp from "/blog-1.webp"
 
-export default function Blog(){
+export  function Component(){
   return (
     <div className="grid grid-cols-1 md:grid-cols-4 gap-2 my-4">
 <div className="col-span-3 my-3 space-y-2 px-4">

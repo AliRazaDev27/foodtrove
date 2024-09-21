@@ -1,15 +1,15 @@
 export const featureCards = [
   {
     title: "Everyday Fresh & Clean with Our Products",
-    imgage: "/banner-1.png",
+    imgage: "/banner-1.webp",
   },
   {
     title: "Make your Breakfast Healthy and Easy",
-    imgage: "banner-2.png",
+    imgage: "banner-2.webp",
   },
   {
     title: "The best Organic Products Online",
-    imgage: "banner-3.png",
+    imgage: "banner-3.webp",
   },
 ];
 
@@ -17,7 +17,7 @@ export const popularProducts = [
   {
     title: "Fresh organic villa farm lomon 500gm pack",
     tag: "Hot",
-    image: "/popular_product_1.png",
+    image: "/popular_product_1.webp",
     category: "Snack",
     rating: "4.0",
     manufacturer: "NestFood",
@@ -27,7 +27,7 @@ export const popularProducts = [
   {
     title: "Best snakes with hazel nut pack 200gm",
     tag: "Sale",
-    image: "/popular_product_2.png",
+    image: "/popular_product_2.webp",
     category: "Hodo Foods",
     rating: "3.5",
     manufacturer: "Stouffer",
@@ -37,7 +37,7 @@ export const popularProducts = [
   {
     title: "Organic fresh venila farm watermelon 5kg",
     tag: "New",
-    image: "/popular_product_3.png",
+    image: "/popular_product_3.webp",
     category: "Snack",
     rating: "4.0",
     manufacturer: "StarKist",
@@ -47,7 +47,7 @@ export const popularProducts = [
   {
     title: "Fresh organic apple 1kg simla marming",
     tag: "",
-    image: "/popular_product_4.png",
+    image: "/popular_product_4.webp",
     category: "Vegitables",
     rating: "4.0",
     manufacturer: "NestFood",
@@ -57,7 +57,7 @@ export const popularProducts = [
   {
     title: "Blue Diamond Almonds Lightly Salted Vegetables",
     tag: "-14%",
-    image: "/popular_product_5.png",
+    image: "/popular_product_5.webp",
     category: "Pet Foods",
     rating: "4.0",
     manufacturer: "NestFood",
@@ -67,7 +67,7 @@ export const popularProducts = [
   {
     title: "Chobani Complete Vanilla Greek Yogurt",
     tag: "",
-    image: "/popular_product_6.png",
+    image: "/popular_product_6.webp",
     category: "Hodo Foods",
     rating: "4.0",
     manufacturer: "NestFood",
@@ -77,7 +77,7 @@ export const popularProducts = [
   {
     title: "Canada Dry Ginger Ale – 2 L Bottle - 200ml - 400g",
     tag: "",
-    image: "/popular_product_7.png",
+    image: "/popular_product_7.webp",
     category: "Meats",
     rating: "4.0",
     manufacturer: "NestFood",
@@ -87,7 +87,7 @@ export const popularProducts = [
   {
     title: "Encore Seafoods Stuffed Alaskan Salmon",
     tag: "Sale",
-    image: "/popular_product_8.png",
+    image: "/popular_product_8.webp",
     category: "Snack",
     rating: "4.0",
     manufacturer: "NestFood",
@@ -97,7 +97,7 @@ export const popularProducts = [
   {
     title: "Gorton’s Beer Battered Fish Fillets with soft paper",
     tag: "Hot",
-    image: "/popular_product_9.png",
+    image: "/popular_product_9.webp",
     category: "Coffes",
     rating: "4.0",
     manufacturer: "Old El Paso",
@@ -107,7 +107,7 @@ export const popularProducts = [
   {
     title: "Haagen-Dazs Caramel Cone Ice Cream Ketchup",
     tag: "",
-    image: "/popular_product_10.png",
+    image: "/popular_product_10.webp",
     category: "Cream",
     rating: "2.0",
     manufacturer: "Tyson",
@@ -120,7 +120,7 @@ export const dailyBestProducts = [
   {
     title: "All Natural Italian-Style Chicken Meatballs",
     tag: "Save 35%",
-    image: "/daily_best_product_1.png",
+    image: "/daily_best_product_1.webp",
     category: "Hodo Foods",
     price: "300",
     disCountedPrice: "280",
@@ -130,7 +130,7 @@ export const dailyBestProducts = [
   {
     title: "Angie’s Boomchickapop Sweet and womnies",
     tag: "Sale",
-    image: "/daily_best_product_2.png",
+    image: "/daily_best_product_2.webp",
     category: "Hodo Foods",
     price: "270",
     disCountedPrice: "250",
@@ -140,7 +140,7 @@ export const dailyBestProducts = [
   {
     title: "Foster Farms Takeout Crispy Classic",
     tag: "Best Sale",
-    image: "/daily_best_product_3.png",
+    image: "/daily_best_product_3.webp",
     category: "Hodo Foods",
     price: "150",
     disCountedPrice: "120",
@@ -150,7 +150,7 @@ export const dailyBestProducts = [
   {
     title: "Blue Diamond Almonds Lightly Salted",
     tag: "Save 15%",
-    image: "/daily_best_product_4.png",
+    image: "/daily_best_product_4.webp",
     category: "Hodo Foods",
     price: "250",
     disCountedPrice: "225",
@@ -162,7 +162,7 @@ export const dailyBestProducts = [
 export const deals = [
   {
     title: "Seeds of Change Organic Quinoa,Brown, & Red Rice",
-    image: "/deal1.png",
+    image: "/deal1.webp",
     rating: "4.0",
     manufacturer: "NestFood",
     price: "35.5",
@@ -170,7 +170,7 @@ export const deals = [
   },
   {
     title: "Perdue Simply Smart Organics Gluten Free",
-    image: "/deal2.png",
+    image: "/deal2.webp",
     rating: "3.8",
     manufacturer: "Old El Paso",
     price: "25",
@@ -178,7 +178,7 @@ export const deals = [
   },
   {
     title: "Signature Wood-Fired Mushroom and Caramelized",
-    image: "/deal3.png",
+    image: "/deal3.webp",
     rating: "3.5",
     manufacturer: "Progresso",
     price: "15",
@@ -186,7 +186,7 @@ export const deals = [
   },
   {
     title: "Simply Lemonade with Raspberry Juice",
-    image: "/deal4.png",
+    image: "/deal4.webp",
     rating: "4.5",
     manufacturer: "Yoplait",
     price: "18",
@@ -197,21 +197,21 @@ export const deals = [
 export const topSelling = [
   {
     title: "Nestle Original Coffee-Mate",
-    image: "/top_selling_1.png",
+    image: "/top_selling_1.webp",
     rating: "4.0",
     price: "35",
     disCountedPrice: "30",
   },
   {
     title: "Nestle Original Coffee-Mate",
-    image: "/top_selling_2.png",
+    image: "/top_selling_2.webp",
     rating: "3.8",
     price: "35",
     disCountedPrice: "32",
   },
   {
     title: "Nestle Original Coffee-Mate",
-    image: "/top_selling_3.png",
+    image: "/top_selling_3.webp",
     rating: "3.5",
     price: "30",
     disCountedPrice: "25",
@@ -220,21 +220,21 @@ export const topSelling = [
 export const trending = [
   {
     title: "Organic Cage-Free Grade",
-    image: "/trending_1.png",
+    image: "/trending_1.webp",
     rating: "4.2",
     price: "60",
     disCountedPrice: "55",
   },
   {
     title: "Seeds of Change Organic",
-    image: "/trending_2.png",
+    image: "/trending_2.webp",
     rating: "4.0",
     price: "45",
     disCountedPrice: "42",
   },
   {
     title: "Naturally Flavored Cinnamon",
-    image: "/trending_3.png",
+    image: "/trending_3.webp",
     rating: "3.7",
     price: "50",
     disCountedPrice: "47",
@@ -243,21 +243,21 @@ export const trending = [
 export const recentlyAdded = [
   {
     title: "Pepperidge Farm",
-    image: "/recently_added_1.png",
+    image: "/recently_added_1.webp",
     rating: "2.8",
     price: "30",
     disCountedPrice: "27",
   },
   {
     title: "Organic Frozen Triple",
-    image: "/recently_added_2.png",
+    image: "/recently_added_2.webp",
     rating: "3.2",
     price: "32",
     disCountedPrice: "30",
   },
   {
     title: "Oroweat Country Buttermilk",
-    image: "/recently_added_3.png",
+    image: "/recently_added_3.webp",
     rating: "3.5",
     price: "35",
     disCountedPrice: "33",
@@ -266,21 +266,21 @@ export const recentlyAdded = [
 export const topRated = [
   {
     title: "Foster Farms Takeout",
-    image: "/top_rated_1.png",
+    image: "/top_rated_1.webp",
     rating: "4.0",
     price: "40",
     disCountedPrice: "38.5",
   },
   {
     title: "Angie’s Boomchickapop",
-    image: "/top_rated_2.png",
+    image: "/top_rated_2.webp",
     rating: "3.6",
     price: "45",
     disCountedPrice: "42",
   },
   {
     title: "All Natural Italian-Style",
-    image: "/top_rated_3.png",
+    image: "/top_rated_3.webp",
     rating: "3.2",
     price: "35",
     disCountedPrice: "32.5",
@@ -290,12 +290,12 @@ export const tags = [
   {
     title: "Best prices & offers",
     tag: "Orders $50 or more",
-    image: "/tag_1.png",
+    image: "/tag_1.webp",
   },
-  { title: "Free delivery", tag: "24/7 amazing services", image: "/tag_2.png" },
-  { title: "Great daily deal", tag: "When you sign up", image: "/tag_3.png" },
-  { title: "Wide assortment", tag: "Mega Discounts", image: "/tag_4.png" },
-  { title: "Easy returns", tag: "Within 30 days", image: "/tag_5.png" },
+  { title: "Free delivery", tag: "24/7 amazing services", image: "/tag_2.webp" },
+  { title: "Great daily deal", tag: "When you sign up", image: "/tag_3.webp" },
+  { title: "Wide assortment", tag: "Mega Discounts", image: "/tag_4.webp" },
+  { title: "Easy returns", tag: "Within 30 days", image: "/tag_5.webp" },
 ];
 
 export const categories = [

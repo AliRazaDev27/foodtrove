@@ -20,7 +20,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet"
 
-export default function ShopLayout() {
+export  function Component() {
   const closeRef = useRef<HTMLButtonElement>(null);
     return (
       <div>

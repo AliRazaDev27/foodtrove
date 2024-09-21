@@ -20,7 +20,7 @@ import {
     PaginationLink,
   } from "@/components/ui/pagination"
 import { getQueryProducts } from "@/actions";
-export default function Products() {
+export  function Component() {
   const [searchParams, setSearchParams] = useSearchParams()
   const page = Number(searchParams.get('page')) || 1
   const search = searchParams.get('search')

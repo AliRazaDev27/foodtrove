@@ -6,7 +6,7 @@ import RatingStar from "@/components/ui/ratingStar";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
-export default function Checkout() {
+export  function Component() {
   const cart = useSelector((state: any) => state.cart.items);
   if(cart.length === 0) return (<div className="min-h-[50vh] flex flex-col justify-center items-center gap-2">
     <h1 className="text-3xl">Your Cart Is Empty</h1>
@@ -105,7 +105,7 @@ export default function Checkout() {
           </div>
         </div>
       </div>
-      <div className="col-span-1 md:col-span-3 gap-4 flex flex-col gap-8">
+      <div className="col-span-1 md:col-span-3  flex flex-col gap-8">
         <div className="space-y-8 border border-gray-300 p-4 rounded-md">
           <div className="flex flex-col justify-between gap-2">
             <h3 className="text-xl font-semibold">New Customer</h3>

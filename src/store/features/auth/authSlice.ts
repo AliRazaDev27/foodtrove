@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import authService from './authService'
+// import authService from './authService'
 
 const storedUser = window.localStorage.getItem('user');
 const user = storedUser ? JSON.parse(storedUser) : null;
@@ -15,7 +15,8 @@ const initialState: State = {
 }
 export const login = createAsyncThunk('auth/login', async (inputValues:any, thunkAPI) => {
   try {
-    const response = await authService.loginUser(inputValues)
+    const authService = await import('./authService')
+    const response = await authService.default.loginUser(inputValues)
     return response
   }
   catch (error) {
@@ -25,7 +26,8 @@ export const login = createAsyncThunk('auth/login', async (inputValues:any, thun
 
 export const register = createAsyncThunk('auth/register', async (inputValues:any, thunkAPI: any) => {
   try {
-    const response = await authService.registerUser(inputValues)
+    const authService = await import('./authService')
+    const response = await authService.default.registerUser(inputValues)
     return response
   }
   catch (error) {
@@ -35,7 +37,8 @@ export const register = createAsyncThunk('auth/register', async (inputValues:any
 
 export const logout = createAsyncThunk('auth/logout', async (thunkAPI: any) => {
   try {
-    const response = await authService.logoutUser()
+    const authService = await import('./authService')
+    const response = await authService.default.logoutUser()
     return response
   }
   catch (error) {

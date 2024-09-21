@@ -8,7 +8,7 @@ import { Tags } from "../components/ui/tags";
 
 import { Hero } from "../components/ui/hero";
 
-export default function Home() {
+export  function Component() {
   return (
     <div className="bg-neutral-800 border border-neutral-900">
       <Hero />

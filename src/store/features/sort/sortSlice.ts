@@ -16,3 +16,5 @@ export const sortSlice = createSlice({
 export const {sort} = sortSlice.actions
 
 export default sortSlice.reducer
+
+// remove sort slice and add url params for this to improve performance

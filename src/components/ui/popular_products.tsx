@@ -1,7 +1,6 @@
 import {popularProducts} from "../../../data/index"
 import { PopularProductCard } from "./popular_product_card"
 export function PopularProducts(){
-    console.log(popularProducts)
     return(
         <div className="px-4 md:my-16">
             <div className="flex justify-between md:my-8">
@@ -23,8 +22,6 @@ export function PopularProducts(){
                         return <PopularProductCard key={index} product={product}/>
                     })
                 }
-                
-                
             </div>
 
         </div>

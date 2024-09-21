@@ -7,7 +7,7 @@ import { useDispatch } from "react-redux";
 import { register } from "../store/features/auth/authSlice";
 
 
-export default function Register() {
+export  function Component() {
     const dispatch = useDispatch<any>()
     const firstNameRef = useRef<HTMLInputElement>(null);
     const lastNameRef = useRef<HTMLInputElement>(null);

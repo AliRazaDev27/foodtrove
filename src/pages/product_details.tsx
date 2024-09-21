@@ -1,5 +1,5 @@
-import {  useState } from "react";
-import { useLoaderData  } from "react-router-dom";
+import { useState } from "react";
+import { useLoaderData } from "react-router-dom";
 import RatingStar from "../components/ui/ratingStar";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Label } from "../components/ui/label";
@@ -11,16 +11,28 @@ import { useDispatch } from "react-redux";
 import type { Product } from "@/types";
 import { useToast } from "../hooks/use-toast";
 
-export default function ProductDetails() {
-  const data = useLoaderData() as Product
+export async function loader({ params }: any) {
+  const id = params.id;
+  console.log(id);
+  const response = await fetch(
+    `${import.meta.env.VITE_BACKEND_URL}/api/products/details/${id}`
+  );
+  return response.json();
+}
+export function Component() {
+  const data = useLoaderData() as Product;
   const [quantity, setQuantity] = useState(1);
   const dispatch = useDispatch();
-  const {toast} = useToast()
+  const { toast } = useToast();
   const handleAddToCart = () => {
     dispatch(addToCart({ item: data, quantity: quantity }));
-    toast({ title: "Added to cart", description: "Check your cart", className: "bg-green-500 text-white" });
-  }
-  
+    toast({
+      title: "Added to cart",
+      description: "Check your cart",
+      className: "bg-green-500 text-white",
+    });
+  };
+
   return (
     // maybe there is a better way to do this, but it works | issue: product details page not scrolling to top when footer is too close to the scroll position of previous page.
     <div className="mt-8 mb-32 py-8">
@@ -57,16 +69,16 @@ export default function ProductDetails() {
             </div>
           )}
           <div className="flex items-center gap-4">
-          <p>Warranty</p>
-          <p className="text-secondary">{data.warrantyInformation}</p>
+            <p>Warranty</p>
+            <p className="text-secondary">{data.warrantyInformation}</p>
           </div>
           <div className="flex items-center gap-4">
-          <p>Shipping Info</p>
-          <p className="text-secondary">{data.shippingInformation}</p>
+            <p>Shipping Info</p>
+            <p className="text-secondary">{data.shippingInformation}</p>
           </div>
           <div className="flex items-center gap-4">
-          <p>Return Policy</p>
-          <p className="text-secondary">{data.returnPolicy}</p>
+            <p>Return Policy</p>
+            <p className="text-secondary">{data.returnPolicy}</p>
           </div>
 
           <div className="flex items-center gap-4">
@@ -99,7 +111,9 @@ export default function ProductDetails() {
                 <FaMinus className="size-[0.6rem]" />
               </button>
             </div>
-            <Button className="bg-lightred" onClick={handleAddToCart}>Add to Cart</Button>
+            <Button className="bg-lightred" onClick={handleAddToCart}>
+              Add to Cart
+            </Button>
             <CiHeart className="size-[1.5rem] hover:text-lightred" />
           </div>
         </div>
@@ -112,18 +126,52 @@ export default function ProductDetails() {
             <TabsTrigger value="reviews">Reviews</TabsTrigger>
           </TabsList>
           <TabsContent value="description" className=" flex flex-col gap-8 p-4">
-            <p className="text-secondary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt magni repellat accusantium. Corporis sapiente suscipit perferendis quo. Voluptatibus voluptates esse quidem excepturi officiis? Quisquam aliquam mollitia unde cum minus ad, rem ullam nostrum recusandae dolore cupiditate. Quos quidem dolorem quaerat maiores accusamus tenetur, debitis ex aspernatur. Tenetur, facilis? Maxime consequuntur nostrum repellendus culpa, dolores dignissimos beatae qui accusantium quos unde quia ipsa deserunt libero! Sed repellendus similique</p>
+            <p className="text-secondary">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt
+              magni repellat accusantium. Corporis sapiente suscipit perferendis
+              quo. Voluptatibus voluptates esse quidem excepturi officiis?
+              Quisquam aliquam mollitia unde cum minus ad, rem ullam nostrum
+              recusandae dolore cupiditate. Quos quidem dolorem quaerat maiores
+              accusamus tenetur, debitis ex aspernatur. Tenetur, facilis? Maxime
+              consequuntur nostrum repellendus culpa, dolores dignissimos beatae
+              qui accusantium quos unde quia ipsa deserunt libero! Sed
+              repellendus similique
+            </p>
             <h3>Packaging & Delivery</h3>
             <p className="text-secondary">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga amet totam officia beatae id blanditiis quae minus. Provident consequuntur sequi, totam, repudiandae assumenda magnam ullam nulla necessitatibus ut nihil mollitia dolorum veritatis atque harum quas! Itaque quasi dicta aut animi inventore deserunt? Dolorum eveniet repellat adipisci laudantium dolore veniam quidem.
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga amet
+              totam officia beatae id blanditiis quae minus. Provident
+              consequuntur sequi, totam, repudiandae assumenda magnam ullam
+              nulla necessitatibus ut nihil mollitia dolorum veritatis atque
+              harum quas! Itaque quasi dicta aut animi inventore deserunt?
+              Dolorum eveniet repellat adipisci laudantium dolore veniam quidem.
             </p>
           </TabsContent>
           <TabsContent value="information" className=" flex flex-col gap-8 p-4">
-          <p className="text-secondary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt magni repellat accusantium. Corporis sapiente suscipit perferendis quo. Voluptatibus voluptates esse quidem excepturi officiis? Quisquam aliquam mollitia unde cum minus ad, rem ullam nostrum recusandae dolore cupiditate. Quos quidem dolorem quaerat maiores accusamus tenetur, debitis ex aspernatur. Tenetur, facilis? Maxime consequuntur nostrum repellendus culpa, dolores dignissimos beatae qui accusantium quos unde quia ipsa deserunt libero! Sed repellendus similique</p>
-          
+            <p className="text-secondary">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt
+              magni repellat accusantium. Corporis sapiente suscipit perferendis
+              quo. Voluptatibus voluptates esse quidem excepturi officiis?
+              Quisquam aliquam mollitia unde cum minus ad, rem ullam nostrum
+              recusandae dolore cupiditate. Quos quidem dolorem quaerat maiores
+              accusamus tenetur, debitis ex aspernatur. Tenetur, facilis? Maxime
+              consequuntur nostrum repellendus culpa, dolores dignissimos beatae
+              qui accusantium quos unde quia ipsa deserunt libero! Sed
+              repellendus similique
+            </p>
           </TabsContent>
           <TabsContent value="reviews" className=" flex flex-col gap-8 p-4">
-          <p className="text-secondary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt magni repellat accusantium. Corporis sapiente suscipit perferendis quo. Voluptatibus voluptates esse quidem excepturi officiis? Quisquam aliquam mollitia unde cum minus ad, rem ullam nostrum recusandae dolore cupiditate. Quos quidem dolorem quaerat maiores accusamus tenetur, debitis ex aspernatur. Tenetur, facilis? Maxime consequuntur nostrum repellendus culpa, dolores dignissimos beatae qui accusantium quos unde quia ipsa deserunt libero! Sed repellendus similique</p>
+            <p className="text-secondary">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt
+              magni repellat accusantium. Corporis sapiente suscipit perferendis
+              quo. Voluptatibus voluptates esse quidem excepturi officiis?
+              Quisquam aliquam mollitia unde cum minus ad, rem ullam nostrum
+              recusandae dolore cupiditate. Quos quidem dolorem quaerat maiores
+              accusamus tenetur, debitis ex aspernatur. Tenetur, facilis? Maxime
+              consequuntur nostrum repellendus culpa, dolores dignissimos beatae
+              qui accusantium quos unde quia ipsa deserunt libero! Sed
+              repellendus similique
+            </p>
           </TabsContent>
         </Tabs>
       </div>

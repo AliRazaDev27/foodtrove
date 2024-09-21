@@ -8,7 +8,7 @@ import { login } from "../store/features/auth/authSlice";
 import { Toaster } from "@/components/ui/toaster";
 import {useToast} from "../hooks/use-toast"
 import { useNavigate } from "react-router-dom";
-export default function Login() {
+export  function Component() {
     const dispatch = useDispatch<any>()
     const {toast} = useToast()
     const navigate = useNavigate()

@@ -1,17 +1,19 @@
-import { Header } from "../components/ui/header";
-import { Footer } from "../components/ui/footer";
-import { Outlet, ScrollRestoration } from "react-router-dom";
+import  Header from "../components/ui/header";
+import { Outlet } from "react-router-dom";
 import { Toaster } from "@/components/ui/toaster"
+import { lazy, Suspense } from "react";
 
-export default function Root() {
+const Footer = lazy(() => import('../components/ui/footer'))
+
+export  function Component() {
     return(
         <main>
-        <Header />
+        <Header />        
         <Outlet />
+        <Suspense>
         <Footer />
-        <ScrollRestoration />
+        </Suspense>
         <Toaster />
-        
         </main>
     )
 }

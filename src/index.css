@@ -6,6 +6,12 @@
     --radius: 0.5rem;
   }
 }
+@font-face {
+  font-family: "Pacifico";
+  src: url('/fonts/pacifico.woff2');
+  font-weight: 400;
+  font-style: normal;
+}
 .slide{
   animation-name: infiniteSlider;
   animation-duration: 15s;

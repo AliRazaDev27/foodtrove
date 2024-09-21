@@ -16,7 +16,7 @@ import {
 } from "@/store/features/cart/cartSlice";
 import { Link } from "react-router-dom";
 
-export default function Cart() {
+export  function Component() {
   const cart = useSelector((state: any) => state.cart.items);
   const dispatch = useDispatch();
   console.log(cart);
