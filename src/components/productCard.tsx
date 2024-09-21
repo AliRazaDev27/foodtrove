@@ -1,14 +1,12 @@
 import RatingStar from "@/components/ui/ratingStar"
 import { Link } from "react-router-dom"
-import { Image } from "./image"
+
 export default function ProductCard({data}:any){
     return(
         <div className="flex flex-col justify-between items-center py-4 px-4 gap-5 text-center border border-gray-400 rounded-2xl ">
-        {/* <div className="border border-gray-400 overflow-hidden rounded-2xl">
-            <img src={data.thumbnail} alt="thumbnail" className="bg-cover" />
-        </div> */}
+        
         <div className="border border-gray-400 overflow-hidden rounded-2xl">
-            <Image src={data.thumbnail} alt="thumbnail" loading="lazy" placeholder="/placeholder.webp"/>
+            <img src={data.thumbnail} alt="thumbnail" width={150} height={150} />
         </div>
     <p className="text-secondary">{data.category}</p>
     <div className="flex items-center gap-2">

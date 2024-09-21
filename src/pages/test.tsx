@@ -1,4 +1,5 @@
 
+
 export  function Component() {
     return(
 <div className=" flex h-[100vh] gap-4 justify-center items-center overflow-hidden ">
