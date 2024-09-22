@@ -11,13 +11,7 @@ export const getQueryProducts = async (query:ProductQuery):Promise<QueryResult> 
       );
     return response.data
 }
-
-
 export type QueryResult = {
     products: Product[];
     count: number;
-}
-
-export const getWishlist = async (value:number) => {
-    return `i fucked ${value} girls`
 }
