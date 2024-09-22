@@ -1,8 +1,5 @@
-import {
-  useQuery,keepPreviousData
-} from '@tanstack/react-query'
-import { useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useEffect, useState,lazy } from "react";
+import { useLoaderData, useSearchParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { sort } from "@/store/features/sort/sortSlice";
 import ProductCard from "../components/productCard";
@@ -19,7 +16,31 @@ import {
     PaginationItem,
     PaginationLink,
   } from "@/components/ui/pagination"
-import { getQueryProducts } from "@/actions";
+import { getQueryProducts, QueryResult } from "@/actions";
+
+// const ProductCard = lazy(()=>import('../components/productCard'))
+const preloadImages = async (products: any[]) => {
+  await Promise.all(products.map((product) => {
+    const img = new Image();
+    img.src = product.thumbnail;
+  }));
+};
+export async function loader({ request }: any) {
+  const url = new URL(request.url)
+  const page = Number(url.searchParams.get('page')) || 1
+  const search = url.searchParams.get('search')
+  const sortBy = url.searchParams.get('sortBy')
+  const minPrice = Number(url.searchParams.get('minPrice'))
+  const maxPrice = Number(url.searchParams.get('maxPrice'))
+  const category = url.searchParams.get('category')
+  const brand = url.searchParams.get('brand')
+  const data:QueryResult = await getQueryProducts({page:page,search:search,sortBy:sortBy,minPrice:minPrice,maxPrice:maxPrice,category:category,brand:brand})
+  await preloadImages(data.products)
+  console.log(performance.now())
+  return data
+
+}
+
 export  function Component() {
   const [searchParams, setSearchParams] = useSearchParams()
   const page = Number(searchParams.get('page')) || 1
@@ -32,12 +53,8 @@ export  function Component() {
   const sortOption = useSelector((state:any)=>state.sort.sortBy)
   const dispatch = useDispatch()
   const [select, setSelect] = useState(sortOption);
-  const {data,isLoading} = useQuery({
-  queryKey:['products',page,search,sortBy,minPrice,maxPrice,category,brand,select],
-  queryFn:()=>getQueryProducts({page:page,search:search,sortBy:select,minPrice:minPrice,maxPrice:maxPrice,category:category,brand:brand}),
-  placeholderData:keepPreviousData,
-})
-//this can be improved
+  const data = useLoaderData() as QueryResult
+  // sorting is currently not working, because data loading mechanism is changed from react query to router loader method, from fetch in render to render as you fetch.
   useEffect(() => {
     dispatch(sort(select))
   },[select])
@@ -115,15 +132,9 @@ export  function Component() {
     setSearchParams(nextSearchParams);
   }
   const gotoTop = () => {
-    window.scrollTo({ top: 0, behavior:"auto" });
+    window.scrollTo({ top: 0, behavior:"smooth" });
   }
-  // apply proper state renders for error,loading and data
-  if(isLoading){
-    return (
-      <div className="flex justify-center items-center min-h-[80vh]">
-      </div>
-    )
-  }
+  
   if(data?.products?.length === 0){
     return (
       <div className="flex justify-center items-center min-h-[80vh]">
@@ -137,8 +148,8 @@ export  function Component() {
         <div className="flex flex-wrap gap-2 py-2  justify-between items-center">
         <div className="flex items-center gap-4">
     <div className="flex items-center gap-1">
-    <div><img src="/viewMode2.png" alt="grid" className="bg-cover" /></div>
-        <div><img src="/viewMode1.png" alt="item" className="bg-cover" /></div>
+    <div><img src="/viewMode2.webp" alt="grid" className="size-8" /></div>
+        <div><img src="/viewMode1.webp" alt="item" className="size-8" /></div>
     </div>
     <div>We found <span className="font-semibold">{data?.count}</span> items for you</div>
 
@@ -191,3 +202,4 @@ export  function Component() {
       </div>
   );
 }
+

@@ -2,6 +2,7 @@ import RatingStar from "@/components/ui/ratingStar"
 import { Link } from "react-router-dom"
 
 export default function ProductCard({data}:any){
+    console.log(performance.now())
     return(
         <div className="flex flex-col justify-between items-center py-4 px-4 gap-5 text-center border border-gray-400 rounded-2xl ">
         

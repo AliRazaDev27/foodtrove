@@ -59,7 +59,6 @@ export function SearchAndFilter({close}:{close?:any}) {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const sortBy = useSelector((state:any)=>state.sort.sortBy) 
-  console.log(sortBy)
   const handleFilter = () => {
     const categoryValues = selectedCategories.map((category, index) => {
       if (category) {
@@ -72,12 +71,8 @@ export function SearchAndFilter({close}:{close?:any}) {
         return brands[index];
       }
     }).filter((brand) => brand !== undefined);
-      console.log(categoryValues)
       const encodedCategories = encodeURIComponent(JSON.stringify(categoryValues));
       const encodedBrands = encodeURIComponent(JSON.stringify(brandValues));
-      // const searchParams: any = {
-      //   page: 1,
-      // }
       let searchParams = "/shop?page=1"
       if(search !== ""){
         searchParams += `&search=${search}` 
