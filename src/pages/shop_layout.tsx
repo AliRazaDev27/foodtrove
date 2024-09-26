@@ -21,6 +21,7 @@ import {
 } from "@/components/ui/sheet"
 
 export  function Component() {
+  console.log("shop layout",performance.now())
   const closeRef = useRef<HTMLButtonElement>(null);
     return (
       <div>

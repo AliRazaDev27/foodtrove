@@ -1,5 +1,5 @@
 import { useEffect, useState,lazy,Suspense } from "react";
-import { useLoaderData,  } from "react-router-dom";
+import { useLoaderData,Await,defer  } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { sort } from "@/store/features/sort/sortSlice";
 import ProductCard from "../components/productCard";
@@ -10,18 +10,12 @@ import {
     SelectTrigger,
     SelectValue,
   } from "@/components/ui/select"
-
-import { getQueryProducts, QueryResult } from "@/actions";
+import { getQueryProducts } from "@/actions";
 // import Paginator from "@/components/paginator";
 const Paginator = lazy(()=>import('@/components/paginator'))
 // const ProductCard = lazy(()=>import('../components/productCard'))
-const preloadImages = async (products: any[]) => {
-  await Promise.all(products.map((product) => {
-    const img = new Image();
-    img.src = product.thumbnail;
-  }));
-};
 export async function loader({ request }: any) {
+  console.log("loader",performance.now())
   const url = new URL(request.url)
   const page = Number(url.searchParams.get('page')) || 1
   const search = url.searchParams.get('search')
@@ -30,34 +24,21 @@ export async function loader({ request }: any) {
   const maxPrice = Number(url.searchParams.get('maxPrice'))
   const category = url.searchParams.get('category')
   const brand = url.searchParams.get('brand')
-  const data:QueryResult = await getQueryProducts({page:page,search:search,sortBy:sortBy,minPrice:minPrice,maxPrice:maxPrice,category:category,brand:brand})
-  await preloadImages(data.products)
-  console.log(performance.now())
-  return data
-
+  const data =  getQueryProducts({page:page,search:search,sortBy:sortBy,minPrice:minPrice,maxPrice:maxPrice,category:category,brand:brand})
+  // await preloadImages(data.products)
+  console.log("loader promise returned in",performance.now())
+  return defer({data})
 }
-
 export  function Component() {
-  
+  console.log("products", performance.now())
   const sortOption = useSelector((state:any)=>state.sort.sortBy)
   const dispatch = useDispatch()
   const [select, setSelect] = useState(sortOption);
-  const data = useLoaderData() as QueryResult
+  const data:any = useLoaderData()
   // sorting is currently not working, because data loading mechanism is changed from react query to router loader method, from fetch in render to render as you fetch.
   useEffect(() => {
     dispatch(sort(select))
   },[select])
-  
- 
-  
-  if(data?.products?.length === 0){
-    return (
-      <div className="flex justify-center items-center min-h-[80vh]">
-        <div className="text-3xl font-semibold"><span className="text-lightred">Opps!</span> No Products Found.</div>
-      </div>
-    )
-  }
-  
   return (
       <div>
         <div className="flex flex-wrap gap-2 py-2  justify-between items-center">
@@ -66,8 +47,13 @@ export  function Component() {
     <div><img src="/viewMode2.webp" alt="grid" className="size-8" /></div>
         <div><img src="/viewMode1.webp" alt="item" className="size-8" /></div>
     </div>
-    <div>We found <span className="font-semibold">{data?.count}</span> items for you</div>
-
+    <Suspense>
+      <Await resolve={data?.data}>
+        {(data)=>(
+          data.products.length > 0 && <div>We found <span className="font-semibold">{data?.count}</span> items for you</div>
+        )}
+      </Await>
+    </Suspense>
 </div>
 <div>
 <Select onValueChange={setSelect} value={select}>
@@ -83,18 +69,24 @@ export  function Component() {
     <SelectItem value="price_low">Price: Low</SelectItem>
   </SelectContent>
 </Select>
-
 </div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {data?.products &&
-            data.products.map((product, index) => (
-              <ProductCard data={product} key={index} />
-            ))}
-        </div>
+          <Suspense>
+          <Await resolve={data?.data}>
+            {(data)=>(
+                data?.products.length > 0 ? data?.products?.map((product:any,index:number)=> <ProductCard key={index} data={product}/>):
+                <div className="col-span-3 text-center"><div className="text-3xl font-semibold"><span className="text-lightred">Opps!</span> No Products Found.</div></div>
+            )
+            }
+          </Await>
+          </Suspense>
+          </div>
         <div className="my-16">
         <Suspense>
-        <Paginator count={data?.count}/>
+          <Await resolve={data?.data}>
+            {(data)=>(data.products.length > 0 && <Paginator count={data?.count}/>)}
+          </Await>
         </Suspense>
         </div>
       </div>
