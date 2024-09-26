@@ -43,7 +43,7 @@ export function Hero(){
         <div ref={containerRef} className="relative  flex flex-col-reverse leading md:flex-row  justify-evenly min-h-[90vh] items-center bg-gray-300">
                 <div className="flex   flex-col items-center gap-4 py-2 px-2  md:w-1/2">
                     <p className="text-lg sm:text-xl  font-bold leading-6 tracking-wider"><span className=" text-red-600 underline underline-offset-4 font-bold pr-1">100%</span> Organic Vegetables</p>
-                    <div ref={textRef} className="text-3xl md:text-5xl pacifico-regular md:leading-[60px] font-extrabold  w-[75%] text-center  mx-auto "><p className="md:hidden">The best way to stuff your wallet.</p></div>
+                    <div ref={textRef} className="text-3xl md:text-5xl pacifico-regular md:leading-[60px] font-extrabold  w-[75%] text-center  mx-auto  md:min-h-[12rem] "><p className="md:hidden">The best way to stuff your wallet.</p></div>
                     <p className="text-gray-500 leading-6 w-[75%] text-center sm:w-full">Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet
                     reiciendis beatae consequuntur.
                     </p>

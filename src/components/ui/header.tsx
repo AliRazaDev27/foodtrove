@@ -22,7 +22,7 @@ export default function Header() {
     <header className="container mx-auto hidden md:flex  justify-between items-center my-4 px-2">
       <WaterFallBorder  borderColor="bg-gradient-to-b from-red-400 to-red-700" >
       <div className="flex pacifico-regular items-center font-bold text-lg md:text-2xl bg-white px-2 py-2 ">
-        <img src="/logo.webp" alt="logo" />
+        <img src="/logo.webp" alt="logo" width={40}  height={40}/>
         <Link to="/">FoodTrove</Link>
       </div>
       </WaterFallBorder>
@@ -94,7 +94,7 @@ export default function Header() {
     <Sheet>
   <div className="flex justify-between items-center md:hidden my-4 px-4">
   <div className="flex items-center font-bold text-lg">
-        <img src="/logo.webp" alt="logo" />
+        <img src="/logo.webp" alt="logo" width={40} height={40} />
         <Link to="/">FoodTrove</Link>
       </div>
   <SheetTrigger className="block md:hidden ">

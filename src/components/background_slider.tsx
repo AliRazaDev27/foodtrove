@@ -21,13 +21,13 @@ export function BackgroundSlider(
         animate = "top-0 right-[100%] peer-hover:translate-x-[100%]"
     }
     return(
-        <div className={`relative w-max border overflow-hidden  ${background ? background : "bg-white"}  ${rounded}`}>
+        <div className={`relative w-max  overflow-hidden  ${background ? background : "bg-white"}  ${rounded}`}>
         <div className="relative  peer z-10">
         {children}
         </div>
         <div
          className=
-         {`absolute   -z-0 ${ease}  transition-transform ${duration ? `duration-${duration}` : "duration-500"} ${delay} ${animate} ${color ? color : "bg-red-500" } w-full h-full`}/>
+         {`absolute peer-hover:scale-105   -z-0 ${ease}  transition-transform ${duration ? `duration-${duration}` : "duration-500"} ${delay} ${animate} ${color ? color : "bg-red-500" } w-full h-full`}/>
     </div>
     )
 }
