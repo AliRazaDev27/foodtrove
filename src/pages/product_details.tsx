@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import RatingStar from "../components/ui/ratingStar";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -19,8 +19,15 @@ export async function loader({ params }: any) {
   );
   return response.json();
 }
+async function prefetchImages(thumbnail:string) {
+    const img = new Image();
+    img.src = thumbnail;
+
+}
 export function Component() {
+  const imgRef = useRef<HTMLImageElement>(null);
   const data = useLoaderData() as Product;
+  prefetchImages(data.thumbnail)
   const [quantity, setQuantity] = useState(1);
   const dispatch = useDispatch();
   const { toast } = useToast();
@@ -36,15 +43,16 @@ export function Component() {
   return (
     // maybe there is a better way to do this, but it works | issue: product details page not scrolling to top when footer is too close to the scroll position of previous page.
     <div className="mt-8 mb-32 py-8">
-      <div className="grid grid-cols-1 md:grid-cols-5">
-        <div className="col-span-2">
-          <div>
-            <img src={data.thumbnail} alt="thumbnail" />
+      <div className="grid grid-cols-1 sm:grid-cols-5">
+        <div className="col-span-2 max-sm:flex max-sm:flex-col max-sm:items-center gap-2">
+          <div className="overflow-hidden aspect-square">
+            <img src={data.thumbnail} alt="thumbnail" ref={imgRef} width={100} height={100} className="w-full"/>
           </div>
           <div className="flex gap-2 items-center">
-            {data.images?.map((image) => (
-              <div className="w-20">
-                <img src={image} alt="image" className="bg-cover" />
+          {/* <div className="w-20 p-1 border border-neutral-400"><img src={data.thumbnail} alt="image"  width={100} height={100} className="w-full"/></div> */}
+            {data.images?.map((image, index) => (
+              <div className="w-20 p-1 border border-neutral-400 rounded-xl cursor-pointer" key={index} onClick={() => (imgRef.current!.src = image)}>
+                <img src={image} alt="image" width={100} height={100}/>
               </div>
             ))}
           </div>
