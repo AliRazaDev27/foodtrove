@@ -32,6 +32,10 @@ const router = createBrowserRouter([
           {
             index:true,
             lazy:()=>import('./pages/products.tsx'),
+            async loader({ request }: any) {
+              let loader = await import('./actions/product_loader.ts')
+              return loader.default({request})
+            }
           },
           {
             path:"productDetails/:id",

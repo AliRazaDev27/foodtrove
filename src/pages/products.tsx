@@ -1,5 +1,5 @@
 import { useEffect, useState,lazy,Suspense } from "react";
-import { useLoaderData,Await,defer  } from "react-router-dom";
+import { useLoaderData,Await  } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { sort } from "@/store/features/sort/sortSlice";
 import ProductCard from "../components/productCard";
@@ -10,27 +10,10 @@ import {
     SelectTrigger,
     SelectValue,
   } from "@/components/ui/select"
-import { getQueryProducts } from "@/actions";
-// import Paginator from "@/components/paginator";
+
 const Paginator = lazy(()=>import('@/components/paginator'))
-// const ProductCard = lazy(()=>import('../components/productCard'))
-export async function loader({ request }: any) {
-  console.log("loader",performance.now())
-  const url = new URL(request.url)
-  const page = Number(url.searchParams.get('page')) || 1
-  const search = url.searchParams.get('search')
-  const sortBy = url.searchParams.get('sortBy')
-  const minPrice = Number(url.searchParams.get('minPrice'))
-  const maxPrice = Number(url.searchParams.get('maxPrice'))
-  const category = url.searchParams.get('category')
-  const brand = url.searchParams.get('brand')
-  const data =  getQueryProducts({page:page,search:search,sortBy:sortBy,minPrice:minPrice,maxPrice:maxPrice,category:category,brand:brand})
-  // await preloadImages(data.products)
-  console.log("loader promise returned in",performance.now())
-  return defer({data})
-}
+
 export  function Component() {
-  console.log("products", performance.now())
   const sortOption = useSelector((state:any)=>state.sort.sortBy)
   const dispatch = useDispatch()
   const [select, setSelect] = useState(sortOption);

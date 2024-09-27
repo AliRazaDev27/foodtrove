@@ -11,8 +11,8 @@ import {
   import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { WaterFallBorder } from "../waterfall_border";
-  
 
+//this may be improved
 
 export default function Header() {
   const user = useSelector((state:any) => state.auth.user)

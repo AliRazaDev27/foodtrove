@@ -5,7 +5,6 @@ import { DealsOfTheDay } from "../components/ui/deals_of_the_day";
 import { ComplexGrid } from "../components/ui/complex_grid";
 import { SubscribeCard } from "../components/ui/subscribe_card";
 import { Tags } from "../components/ui/tags";
-
 import { Hero } from "../components/ui/hero";
 
 export  function Component() {
